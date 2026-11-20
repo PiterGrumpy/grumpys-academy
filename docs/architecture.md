@@ -22,11 +22,13 @@ Limitaciones: el ecosistema está fijado a la rama 5 de Astro mientras el entorn
 ## Capas
 
 ```text
-Interfaz        src/pages/         Rutas (actualmente solo index.astro)
+Interfaz        src/pages/         Inicio, índice de cursos y rutas dinámicas
+                src/pages/cursos/  Página de curso y de lección
                 src/layouts/       Estructura HTML compartida
                 src/components/    Piezas reutilizables
 Contenido       src/content.config.ts   Definición de colecciones y esquemas
-                src/content/courses/    Entradas Markdown reales (vacío)
+                src/content/courses/    Entrada Markdown del curso R
+                src/content/lessons/    Tres lecciones Markdown del curso R
 Estilos         src/styles/global.css   Tokens y estilos base
 Recursos        public/                Favicon y estáticos sin procesar
 Configuración   astro.config.mjs, tsconfig.json, eslint.config.mjs,
@@ -39,39 +41,42 @@ Regla de oro: el contenido nunca importa componentes y los componentes nunca con
 
 ## Sistema de contenido
 
-`src/content.config.ts` declara una colección `courses` con el loader `glob` sobre `src/content/courses` y un esquema mínimo:
+`src/content.config.ts` declara dos colecciones con loader `glob`:
 
-- `title`: título del curso.
-- `description`: descripción breve.
+| Colección | Directorio             | Esquema                                                  |
+| --------- | ---------------------- | -------------------------------------------------------- |
+| `courses` | `src/content/courses/` | `title`, `description`                                   |
+| `lessons` | `src/content/lessons/` | `title`, `description`, `course` (id del curso), `order` |
 
-No hay entradas. El directorio se mantiene con un `.gitkeep` para que la ruta exista. Cuando se solicite un curso, se añadirán archivos Markdown y se ampliará el esquema con los metadatos que ese curso necesite (orden, módulos, navegación), no antes.
+El curso `r` y sus tres lecciones son entradas reales. El orden de navegación se deriva de `order` y no de listas duplicadas a mano. Los metadatos siguen siendo mínimos: se ampliarán solo cuando un contenido real lo exija (por ejemplo, módulos).
 
-Convenciones de escritura: [content-conventions.md](content-conventions.md).
+Los archivos fuente PDF están en `src/cursos/R/`. No se publican ni se procesan en el build: son el material de referencia entregado por el usuario.
+
+Convenciones de escritura: [content-conventions.md](content-conventions.md). Decisión: [ADR 0003](decisions/0003-curso-r-y-lecciones.md).
 
 ## Flujo de build
 
-1. Astro lee `astro.config.mjs` (salida `static`).
+1. Astro lee `astro.config.mjs` (salida `static` y resaltado de código desactivado).
 2. Carga las colecciones declaradas y valida los esquemas.
-3. Renderiza `src/pages/` a HTML en `dist/`.
+3. Renderiza `src/pages/` a HTML en `dist/`. Las rutas dinámicas consultan las colecciones y renderizan cada entrada Markdown con `render()`.
 4. Los estilos globales se procesan y se entregan como CSS estático.
 
-No hay adapters, middleware, endpoints ni renderizado bajo demanda.
+No hay adapters, middleware, endpoints ni renderizado bajo demanda. Las soluciones ocultas usan `<details>` nativo: no hay JavaScript de cliente.
 
-## Cómo incorporar un curso en el futuro
+## Cómo incorporar contenido nuevo
 
 Solo tras una solicitud explícita:
 
-1. Crear la entrada Markdown bajo `src/content/courses/` siguiendo las plantillas y convenciones.
-2. Ampliar el esquema de la colección si hacen falta metadatos nuevos.
-3. Crear la ruta que liste cursos y la ruta dinámica de curso/lección usando `getCollection()` y `getStaticPaths()`.
-4. Añadir los componentes de contenido estrictamente necesarios.
+1. Crear la entrada del curso en `src/content/courses/` y las lecciones en `src/content/lessons/` siguiendo las plantillas y convenciones.
+2. Asignar a cada lección un `course` existente y un `order` único dentro de ese curso; las rutas y la navegación se generan solas.
+3. Ampliar los esquemas solo si el contenido real exige metadatos nuevos.
+4. Añadir componentes o estilos estrictamente necesarios.
 5. Validar enlaces, accesibilidad, build y documentación.
 
 ## Puntos de extensión previstos (no implementados)
 
-- Índice de cursos y páginas de curso.
-- Índice de módulos y navegación entre lecciones.
-- Componentes para ejemplos, avisos, tablas, diagramas y soluciones ocultas.
-- Sitemap, robots y comprobación de enlaces.
+- Índice de módulos y tabla de contenidos por lección.
+- Componentes dedicados para diagramas y soluciones interactivas.
+- Sitemap, robots y comprobación automatizada de enlaces.
 
 No se crearán de forma anticipada.

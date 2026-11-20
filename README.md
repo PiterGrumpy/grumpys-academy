@@ -1,8 +1,8 @@
 # Grumpy's Academy
 
-Base estática para una futura plataforma de aprendizaje de programación en español.
+Plataforma estática de aprendizaje de programación en español.
 
-**Estado actual:** proyecto de cimentación. No hay cursos, módulos, lecciones ni ejercicios publicados. La página de inicio es deliberadamente neutra y no simula un catálogo.
+**Estado actual:** curso «Introducción a R» publicado con tres lecciones —instalación y primeros pasos, vectores y matrices, y dataframes y listas—. Cada lección incluye ejemplos y ejercicios con solución oculta. El material original son tres PDF entregados por el usuario, que sirven de guía y no se publican.
 
 ## Requisitos
 
@@ -36,12 +36,17 @@ Abrir la URL local que muestra Astro (normalmente `http://localhost:4321`).
 ```text
 src/
 ├── components/          Componentes reutilizables
-├── content/courses/     Contenido real futuro (vacío ahora)
+├── content/courses/     Entradas de cursos
+├── content/lessons/     Entradas de lecciones
 ├── content.config.ts    Esquemas de contenido
+├── cursos/R/            PDF originales (referencia, no publicados)
 ├── layouts/             Estructura HTML compartida
-├── pages/               Rutas
+├── pages/               Inicio y rutas de cursos
+│   └── cursos/          Índice, página de curso y de lección
 └── styles/              Tokens y estilos globales
 ```
+
+Las lecciones están disponibles en `/cursos/r/`.
 
 La documentación completa está en `AGENT.md` (instrucciones), `MEMORY.md` (memoria) y `docs/`:
 

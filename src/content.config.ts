@@ -2,7 +2,6 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-// Esquema mínimo deliberado: se ampliará cuando se solicite contenido real.
 const courses = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/courses' }),
   schema: z.object({
@@ -11,4 +10,16 @@ const courses = defineCollection({
   }),
 });
 
-export const collections = { courses };
+// `course` guarda el id de la entrada de courses a la que pertenece la lección.
+// `order` define la posición de la lección dentro de ese curso.
+const lessons = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/lessons' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    course: z.string(),
+    order: z.number().int().positive(),
+  }),
+});
+
+export const collections = { courses, lessons };

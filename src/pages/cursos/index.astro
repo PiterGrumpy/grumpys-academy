@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const courses = (await getCollection('courses')).sort((a, b) => a.id.localeCompare(b.id, 'es'));
+---
+
+<BaseLayout
+  title="Cursos | Grumpy's Academy"
+  description="Cursos de programación publicados en Grumpy's Academy."
+>
+  <main id="contenido" class="container page-main">
+    <h1>Cursos</h1>
+    <p>Estos son los cursos publicados hasta ahora.</p>
+    <ul class="resource-list">
+      {
+        courses.map((course) => (
+          <li>
+            <a href={`/cursos/${course.id}/`}>{course.data.title}</a>
+            <p>{course.data.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</BaseLayout>

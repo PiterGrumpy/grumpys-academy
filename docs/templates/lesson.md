@@ -2,6 +2,8 @@
 # Plantilla de lección — no es contenido real
 title: '{{TÍTULO_DE_LA_LECCIÓN}}'
 description: '{{IDEA_PRINCIPAL_DE_LA_LECCIÓN}}'
+course: '{{ID_DEL_CURSO}}'
+order: { { NÚMERO_DE_ORDEN } }
 ---
 
 # {{TÍTULO_DE_LA_LECCIÓN}}
@@ -16,7 +18,9 @@ description: '{{IDEA_PRINCIPAL_DE_LA_LECCIÓN}}'
 {{CÓDIGO_DEL_EJEMPLO}}
 ```
 
-{{RESULTADO_ESPERADO_Y_POR_QUÉ_FUNCIONA}}
+```text
+{{RESULTADO_ESPERADO}}
+```
 
 ## {{APARTADO_2}}
 
@@ -33,6 +37,31 @@ description: '{{IDEA_PRINCIPAL_DE_LA_LECCIÓN}}'
 
 ## Ejercicios
 
-{{ENLAZAR O INCLUIR SOLO EJERCICIOS QUE USEN LO EXPLICADO HASTA AQUÍ}}
+### Ejercicio 1. {{NOMBRE}} ({{TIPO}})
 
-- {{ENLACE_AL_EJERCICIO_1}}
+{{ENUNCIADO Y CRITERIOS DE ÉXITO O PISTA OPCIONAL}}
+
+<details>
+<summary>Ver la solución del ejercicio 1</summary>
+
+#### Resolución
+
+{{PASOS O IDEA GENERAL}}
+
+```{{LENGUAJE}}
+{{CÓDIGO_DE_LA_SOLUCIÓN}}
+```
+
+#### Por qué funciona
+
+{{RAZONAMIENTO, NO SOLO EL RESULTADO}}
+
+#### Conceptos utilizados
+
+- {{CONCEPTO_1: debe haberse explicado antes}}
+
+#### Errores habituales
+
+- {{ERROR_1: por qué ocurre y cómo evitarlo}}
+
+</details>

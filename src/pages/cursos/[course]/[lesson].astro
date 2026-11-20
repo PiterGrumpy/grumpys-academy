@@ -1,0 +1,67 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const [courses, lessons] = await Promise.all([
+    getCollection('courses'),
+    getCollection('lessons'),
+  ]);
+
+  return lessons.map((lesson) => {
+    const course = courses.find((item) => item.id === lesson.data.course);
+    const courseLessons = lessons
+      .filter((item) => item.data.course === lesson.data.course)
+      .sort((a, b) => a.data.order - b.data.order);
+    const position = courseLessons.findIndex((item) => item.id === lesson.id);
+
+    return {
+      params: { course: lesson.data.course, lesson: lesson.id },
+      props: {
+        lesson,
+        courseTitle: course?.data.title ?? lesson.data.course,
+        previous: position > 0 ? courseLessons[position - 1] : null,
+        next: position < courseLessons.length - 1 ? courseLessons[position + 1] : null,
+      },
+    };
+  });
+}
+
+interface Props {
+  lesson: CollectionEntry<'lessons'>;
+  courseTitle: string;
+  previous: CollectionEntry<'lessons'> | null;
+  next: CollectionEntry<'lessons'> | null;
+}
+
+const { lesson, courseTitle, previous, next } = Astro.props;
+const { Content } = await render(lesson);
+const courseId = lesson.data.course;
+---
+
+<BaseLayout title={`${lesson.data.title} | Grumpy's Academy`} description={lesson.data.description}>
+  <main id="contenido" class="container page-main">
+    <nav class="breadcrumbs" aria-label="Ruta de navegación">
+      <a href="/cursos/">Cursos</a>
+      <span aria-hidden="true">/</span>
+      <a href={`/cursos/${courseId}/`}>{courseTitle}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{lesson.data.title}</span>
+    </nav>
+
+    <article class="lesson">
+      <Content />
+    </article>
+
+    <nav class="lesson-nav" aria-label="Navegación entre lecciones">
+      {
+        previous ? (
+          <a href={`/cursos/${courseId}/${previous.id}/`}>← {previous.data.title}</a>
+        ) : (
+          <span />
+        )
+      }
+      {next ? <a href={`/cursos/${courseId}/${next.id}/`}>{next.data.title} →</a> : <span />}
+    </nav>
+  </main>
+</BaseLayout>

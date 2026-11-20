@@ -1,53 +1,65 @@
 # Convenciones de contenido
 
-Aplica a contenido **futuro**. Hoy no hay entradas reales.
+Aplica al curso de R y a cualquier contenido que se añada en el futuro.
 
 ## Nombres y rutas
 
 - Identificadores en `kebab-case`, minúsculas y sin acentos: `introduccion-a-variable`, no `Introducción a Variable`.
-- Un identificador describe el contenido, no su posición: `tipos-de-datos`, no `leccion3`.
-- Los números solo se usarán como prefijo cuando el orden sea parte del nombre de archivo y sea necesario para la navegación.
-- Las URLs resultantes serán limpias, estables y en minúsculas.
+- Un identificador describe el contenido, no su posición: `vectores-y-matrices`, no `leccion2`.
+- El orden se guarda en el campo `order`, no en el nombre del archivo.
+- Las URLs resultantes son limpias, estables y en minúsculas.
 
-## Metadatos de la colección `courses`
+## Metadatos
 
-Esquema actual en `src/content.config.ts`:
+Esquemas actuales en `src/content.config.ts`:
 
 ```yaml
-title: 'Título del curso' # obligatorio, string
+# src/content/courses/r.md
+title: 'Introducción a R' # obligatorio, string
 description: 'Descripción breve' # obligatorio, string
+
+# src/content/lessons/*.md
+title: 'Vectores y matrices' # obligatorio, string
+description: 'Idea principal de la lección' # obligatorio, string
+course: r # obligatorio, string: id de la entrada de courses
+order: 2 # obligatorio, entero positivo y único dentro del curso
 ```
 
-Los campos se ampliarán solo cuando un curso real lo exija. No se añadirán metadatos especulativos.
+Los campos se ampliarán solo cuando un contenido real lo exija. No se añadirán metadatos especulativos.
 
-## Organización prevista
+## Organización
 
-La colección apunta a `src/content/courses/`. La estructura interna de cada curso se definirá en el momento de su incorporación. La propuesta inicial es agrupar por curso y dentro de este por módulo y lección, manteniendo los archivos Markdown cerca de su tema. Cualquier cambio de esta propuesta debe documentarse antes de crear contenido.
+- `src/content/courses/`: una entrada por curso (`r.md`).
+- `src/content/lessons/`: una entrada por lección, con `course` y `order`.
+- `src/cursos/R/`: PDF originales entregados por el usuario. Son material de referencia; no se publican ni se cargan como contenido.
+
+No existe todavía una colección de módulos. Si el curso crece, se documentará la decisión antes de crearla.
 
 ## Redacción Markdown
 
-- Un `h1` por documento; después `h2`, `h3` sin saltos.
-- Bloques de código con lenguaje explícito: `js, `html, ```css.
+- Un `h1` por documento; después `h2`, `h3`, `h4` sin saltos.
+- Bloques de código con lenguaje explícito: `r, `js, `html, `css.
+- El resultado esperado se muestra en un bloque `text` después del código cuando aporte claridad.
 - Consejos y advertencias como blockquote con etiqueta en negrita: `> **Consejo:** ...`, `> **Advertencia:** ...`.
-- Ejercicios con enunciado, pistas opcionales y solución en bloque nativo `<details>` con `<summary>` descriptivo.
+- Ejercicios integrados en la lección, con enunciado, pista o criterios de éxito cuando ayuden, y solución en `<details>` con `<summary>` descriptivo.
 - Tablas Markdown solo cuando la comparación aporte claridad.
 - Imágenes con texto alternativo y diagramas con descripción textual equivalente.
 - Sin HTML inline salvo los bloques nativos necesarios (por ejemplo, `details`).
 
 ## Elementos pedagógicos
 
-| Elemento              | Representación actual           | Estado                                    |
-| --------------------- | ------------------------------- | ----------------------------------------- |
-| Explicación           | Párrafos y encabezados Markdown | Convención disponible                     |
-| Código                | Bloque vallado con lenguaje     | Convención disponible                     |
-| Consejo / advertencia | Blockquote etiquetado           | Convención disponible                     |
-| Ejercicio             | Apartado con enunciado          | Convención disponible                     |
-| Solución oculta       | `<details>` + `<summary>`       | Convención disponible; estilos pendientes |
-| Tabla                 | Tabla Markdown                  | Convención disponible; estilos pendientes |
-| Imagen / diagrama     | Markdown + alternativa textual  | Convención disponible; estilos pendientes |
+| Elemento              | Representación actual           | Estado                |
+| --------------------- | ------------------------------- | --------------------- |
+| Explicación           | Párrafos y encabezados Markdown | En uso                |
+| Código                | Bloque vallado con lenguaje     | En uso                |
+| Consejo / advertencia | Blockquote etiquetado           | En uso                |
+| Ejercicio             | Apartado `h3` con enunciado     | En uso                |
+| Solución oculta       | `<details>` + `<summary>`       | En uso                |
+| Tabla                 | Tabla Markdown                  | En uso                |
+| Imagen / diagrama     | Markdown + alternativa textual  | Convención disponible |
 
-No se crearán componentes personalizados para estos elementos hasta que exista contenido real que los use.
+No hay componentes personalizados para estos elementos: se resuelven con Markdown, HTML nativo y estilos globales.
 
 ## Navegación
 
-La navegación entre cursos, módulos y lecciones se derivará de los metadatos y del orden de los archivos, no de listas duplicadas a mano. Se implementará cuando existan rutas de cursos.
+La navegación entre cursos y lecciones se deriva de `getCollection()` y del campo `order`. Las rutas generadas son `/cursos/`, `/cursos/<curso>/` y `/cursos/<curso>/<leccion>/`. No hay listas de enlaces duplicadas a mano.

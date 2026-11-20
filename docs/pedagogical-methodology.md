@@ -1,6 +1,6 @@
 # Metodología pedagógica
 
-Este documento describe cómo se escribirán los cursos cuando se soliciten. No contiene cursos reales.
+Este documento describe cómo se escriben los cursos. Las tres lecciones del curso de R se han redactado siguiendo estas reglas; aquí no se reproduce su contenido.
 
 ## Estructura
 

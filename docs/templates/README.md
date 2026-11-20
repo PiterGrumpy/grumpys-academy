@@ -4,7 +4,7 @@ Estas plantillas son **guías de escritura**, no contenido de la plataforma. Nin
 
 ## Uso
 
-1. Solo cuando se solicite expresamente un curso, copiar la plantilla necesaria a `src/content/courses/` (o a la ruta que defina la convención vigente).
+1. Solo cuando se solicite expresamente un curso, copiar la plantilla necesaria a `src/content/courses/` o `src/content/lessons/` según corresponda.
 2. Sustituir todos los marcadores `{{...}}`.
 3. Eliminar las notas de guía entre comentarios.
 4. Comprobar `docs/content-conventions.md`, `docs/pedagogical-methodology.md` y el esquema de `src/content.config.ts`.

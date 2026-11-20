@@ -50,4 +50,4 @@ Los pares texto/fondo cumplen WCAG AA. Revisar el contraste de cualquier token n
 
 ## Estado implementado
 
-Solo existen `BaseLayout`, `SiteHeader`, estilos globales y la página neutra de inicio. Los estilos para code blocks, tablas, imágenes, diagramas y soluciones ocultas se definirán cuando esos elementos se soliciten y tengan un uso real.
+Existen `BaseLayout`, `SiteHeader`, las rutas de cursos y lecciones, y estilos globales. El resaltado de código de Shiki está desactivado: los bloques usan `--color-code-bg`, borde sutil y desplazamiento horizontal. Hay estilos para párrafos, listas, código, blockquotes, tablas y `<details>` porque las lecciones los usan. Imágenes y diagramas siguen sin estilos dedicados hasta que haya un uso real.
