@@ -17,7 +17,7 @@ Esquemas actuales en `src/content.config.ts`:
 # src/content/courses/r.md
 title: 'Introducción a R' # obligatorio, string
 description: 'Descripción breve' # obligatorio, string
-image: '/images/r-consola.svg' # opcional, string: portada de la tarjeta
+image: '/images/r-logo.svg' # opcional, string: logo de la tarjeta
 
 # src/content/lessons/*.md
 title: 'Vectores y matrices' # obligatorio, string
@@ -33,7 +33,7 @@ Los campos se ampliarán solo cuando un contenido real lo exija. No se añadirá
 - `src/content/courses/`: una entrada por curso (`r.md`).
 - `src/content/lessons/`: una entrada por lección, con `course` y `order`.
 - `src/cursos/R/`: PDF originales entregados por el usuario. Son material de referencia; no se publican ni se cargan como contenido.
-- `public/images/`: ilustraciones SVG locales. Se sirven tal cual; las portadas de curso se referencian desde el campo `image` del frontmatter.
+- `public/images/`: ilustraciones SVG locales. Se sirven tal cual; el logo de cada curso se referencia desde el campo `image` del frontmatter.
 
 No existe todavía una colección de módulos. Si el curso crece, se documentará la decisión antes de crearla.
 

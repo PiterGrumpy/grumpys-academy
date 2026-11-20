@@ -43,8 +43,9 @@ Los pares texto/fondo cumplen WCAG AA en ambos temas. Los acentos fuertes se res
 
 - Escala de espaciado en `rem` con valores pares y generosos entre párrafos.
 - Contenedor estándar de 68ch para lectura; contenedor ancho de 72rem para el inicio y los índices que muestran el grid.
-- El grid de cursos usa `repeat(auto-fit, minmax(min(100%, 17rem), 1fr))`: una columna en móvil y varias sin media queries frágiles.
-- Las tarjetas son enlaces completos con imagen opcional, metadato, título, descripción y acción final. El acento se inyecta con `--card-accent`, de modo que añadir un curso no exige nuevo CSS.
+- El grid de cursos usa `repeat(auto-fill, minmax(min(100%, 16rem), 16rem))`: pistas de ancho fijo que no se estiran. Con un solo curso queda una tarjeta pequeña y los huecos vacíos no se reparten; con más cursos se llenan nuevas columnas sin media queries frágiles.
+- Las tarjetas son enlaces completos con logo opcional de 44 px, título, número de lecciones y descripción recortada a tres líneas. El acento se inyecta con `--card-accent`, de modo que añadir un curso no exige nuevo CSS.
+- Ningún texto desborda la tarjeta: `min-width: 0` en los contenedores flex, `overflow-wrap: anywhere` y `-webkit-line-clamp` en título y descripción.
 - Cabecera discreta con el nombre del sitio, borde inferior y espacio suficiente; sin navegación inventada.
 - Diseño fluido: móvil, tablet, portátil y escritorio sin perder legibilidad.
 
@@ -55,6 +56,7 @@ Los pares texto/fondo cumplen WCAG AA en ambos temas. Los acentos fuertes se res
 - Tienen texto alternativo que describe la idea representada; las puramente decorativas usarían `alt=""`.
 - Se muestran con ancho máximo del contenedor, borde sutil y esquinas redondeadas; no flotan ni cubren texto.
 - No sustituyen a la explicación escrita: el contenido sigue siendo comprensible sin verlas.
+- Los logos de curso son SVG cuadrados pequeños, con fondo de acento y una marca reconocible; se muestran a 44 px en la tarjeta. El logo de R está en `public/images/r-logo.svg`.
 
 ## Movimiento y foco
 

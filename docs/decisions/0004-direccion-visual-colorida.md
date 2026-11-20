@@ -15,8 +15,8 @@ La restricción sigue siendo la misma: sitio estático, sin servicios externos, 
 - Definir una paleta de acentos (azul, teal, violeta y ámbar) con fondos suaves, documentada en `docs/visual-design.md` y verificada en tema claro y oscuro.
 - Mostrar los cursos en un grid de tarjetas en `/` y reutilizarlo en `/cursos/`. Cada tarjeta es un enlace con título, descripción y número de lecciones; el acento se aplica mediante la custom property `--card-accent`.
 - Crear `CourseCard.astro`: tiene dos usos reales, props tipadas y ningún JavaScript.
-- Añadir un campo opcional `image` al esquema `courses` para la portada de cada tarjeta.
-- Incluir tres ilustraciones SVG locales en `public/images/` —consola de R, vectores frente a matrices y estructura de un dataframe— y referenciarlas desde las lecciones con texto alternativo descriptivo.
+- Añadir un campo opcional `image` al esquema `courses` para el logo de cada tarjeta.
+- Incluir ilustraciones SVG locales en `public/images/` —logo de R, consola de R, vectores frente a matrices y estructura de un dataframe— y referenciarlas desde las lecciones y las tarjetas con texto alternativo cuando aporte.
 - Mantener el ancho de lectura estrecho en las lecciones; solo el inicio y los índices usan el contenedor ancho.
 
 ## Alternativas consideradas

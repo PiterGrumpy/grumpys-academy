@@ -7,7 +7,7 @@ const courses = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    // Ruta de la portada opcional en public/images/.
+    // Ruta del logo opcional en public/images/.
     image: z.string().optional(),
   }),
 });

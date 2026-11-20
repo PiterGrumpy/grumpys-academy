@@ -48,7 +48,7 @@ Regla de oro: el contenido nunca importa componentes y los componentes nunca con
 | `courses` | `src/content/courses/` | `title`, `description`, `image` (opcional)               |
 | `lessons` | `src/content/lessons/` | `title`, `description`, `course` (id del curso), `order` |
 
-El curso `r` y sus tres lecciones son entradas reales. El orden de navegación se deriva de `order` y no de listas duplicadas a mano. El campo opcional `image` guarda la ruta de la portada de la tarjeta. Los metadatos siguen siendo mínimos: se ampliarán solo cuando un contenido real lo exija (por ejemplo, módulos).
+El curso `r` y sus tres lecciones son entradas reales. El orden de navegación se deriva de `order` y no de listas duplicadas a mano. El campo opcional `image` guarda la ruta del logo de la tarjeta. Los metadatos siguen siendo mínimos: se ampliarán solo cuando un contenido real lo exija (por ejemplo, módulos).
 
 Los archivos fuente PDF están en `src/cursos/R/`. No se publican ni se procesan en el build: son el material de referencia entregado por el usuario. Las ilustraciones SVG están en `public/images/` y se sirven tal cual.
 

@@ -13,24 +13,25 @@ const lessonLabel = lessonCount === 1 ? 'lección' : 'lecciones';
 
 <article class="course-card" style={`--card-accent: ${accent}`}>
   <a class="course-card__link" href={`/cursos/${course.id}/`}>
-    {
-      course.data.image ? (
-        /* La portada es decorativa: el título del curso ya está en la tarjeta. */
-        <img
-          class="course-card__image"
-          src={course.data.image}
-          alt=""
-          width="640"
-          height="360"
-          loading="lazy"
-        />
-      ) : null
-    }
-    <div class="course-card__body">
-      <p class="course-card__meta">{lessonCount} {lessonLabel}</p>
-      <h3 class="course-card__title">{course.data.title}</h3>
-      <p class="course-card__description">{course.data.description}</p>
-      <span class="course-card__action">Ver el curso <span aria-hidden="true">→</span></span>
+    <div class="course-card__header">
+      {
+        course.data.image ? (
+          /* El logo es decorativo: el título del curso ya está en la tarjeta. */
+          <img
+            class="course-card__logo"
+            src={course.data.image}
+            alt=""
+            width="64"
+            height="64"
+            loading="lazy"
+          />
+        ) : null
+      }
+      <div class="course-card__heading">
+        <h3 class="course-card__title">{course.data.title}</h3>
+        <p class="course-card__meta">{lessonCount} {lessonLabel}</p>
+      </div>
     </div>
+    <p class="course-card__description">{course.data.description}</p>
   </a>
 </article>
