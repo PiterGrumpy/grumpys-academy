@@ -11,6 +11,8 @@ Hasta ahora cada variable guardaba un solo valor. Para trabajar con datos necesi
 
 Todo lo que vimos sobre `class()` y los tipos numérico, lógico y carácter sigue aplicando aquí.
 
+![Esquema comparativo de un vector como fila de celdas y una matriz como tabla de filas y columnas](/images/vectores-matrices.svg)
+
 ## Vectores
 
 Un **vector** es una secuencia ordenada de valores del mismo tipo. Se crea con la función `c()` —de _combine_, combinar—, que junta los valores que le pasamos entre paréntesis separados por comas:

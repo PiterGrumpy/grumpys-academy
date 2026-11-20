@@ -2,7 +2,7 @@
 
 Plataforma estática de aprendizaje de programación en español.
 
-**Estado actual:** curso «Introducción a R» publicado con tres lecciones —instalación y primeros pasos, vectores y matrices, y dataframes y listas—. Cada lección incluye ejemplos y ejercicios con solución oculta. El material original son tres PDF entregados por el usuario, que sirven de guía y no se publican.
+**Estado actual:** curso «Introducción a R» publicado con tres lecciones —instalación y primeros pasos, vectores y matrices, y dataframes y listas—. El inicio muestra los cursos en un grid de tarjetas con acentos de color y las lecciones incluyen ilustraciones SVG locales, ejemplos y ejercicios con solución oculta. El material original son tres PDF entregados por el usuario, que sirven de guía y no se publican.
 
 ## Requisitos
 
@@ -35,7 +35,7 @@ Abrir la URL local que muestra Astro (normalmente `http://localhost:4321`).
 
 ```text
 src/
-├── components/          Componentes reutilizables
+├── components/          CourseCard y SiteHeader
 ├── content/courses/     Entradas de cursos
 ├── content/lessons/     Entradas de lecciones
 ├── content.config.ts    Esquemas de contenido
@@ -46,7 +46,7 @@ src/
 └── styles/              Tokens y estilos globales
 ```
 
-Las lecciones están disponibles en `/cursos/r/`.
+Las ilustraciones se sirven desde `public/images/`. Las lecciones están disponibles en `/cursos/r/`. El diseño visual y sus tokens están descritos en [diseño visual](docs/visual-design.md) (ADR 0004).
 
 La documentación completa está en `AGENT.md` (instrucciones), `MEMORY.md` (memoria) y `docs/`:
 

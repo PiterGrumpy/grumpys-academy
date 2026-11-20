@@ -3,6 +3,7 @@
 # Metadatos según el esquema actual de src/content.config.ts
 title: '{{TÍTULO_DEL_CURSO}}'
 description: '{{DESCRIPCIÓN_BREVE_Y_CONCRETA}}'
+image: '/images/{{ILUSTRACIÓN_DEL_CURSO}}.svg' # opcional; si se omite, la tarjeta no muestra portada
 ---
 
 # {{TÍTULO_DEL_CURSO}}

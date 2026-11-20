@@ -25,12 +25,12 @@ Limitaciones: el ecosistema está fijado a la rama 5 de Astro mientras el entorn
 Interfaz        src/pages/         Inicio, índice de cursos y rutas dinámicas
                 src/pages/cursos/  Página de curso y de lección
                 src/layouts/       Estructura HTML compartida
-                src/components/    Piezas reutilizables
+                src/components/    CourseCard y SiteHeader
 Contenido       src/content.config.ts   Definición de colecciones y esquemas
                 src/content/courses/    Entrada Markdown del curso R
                 src/content/lessons/    Tres lecciones Markdown del curso R
 Estilos         src/styles/global.css   Tokens y estilos base
-Recursos        public/                Favicon y estáticos sin procesar
+Recursos        public/                Favicon, ilustraciones SVG y estáticos sin procesar
 Configuración   astro.config.mjs, tsconfig.json, eslint.config.mjs,
                 .prettierrc.json, opencode.jsonc
 Documentación   AGENT.md, MEMORY.md, README.md, CONTRIBUTING.md, docs/
@@ -45,23 +45,23 @@ Regla de oro: el contenido nunca importa componentes y los componentes nunca con
 
 | Colección | Directorio             | Esquema                                                  |
 | --------- | ---------------------- | -------------------------------------------------------- |
-| `courses` | `src/content/courses/` | `title`, `description`                                   |
+| `courses` | `src/content/courses/` | `title`, `description`, `image` (opcional)               |
 | `lessons` | `src/content/lessons/` | `title`, `description`, `course` (id del curso), `order` |
 
-El curso `r` y sus tres lecciones son entradas reales. El orden de navegación se deriva de `order` y no de listas duplicadas a mano. Los metadatos siguen siendo mínimos: se ampliarán solo cuando un contenido real lo exija (por ejemplo, módulos).
+El curso `r` y sus tres lecciones son entradas reales. El orden de navegación se deriva de `order` y no de listas duplicadas a mano. El campo opcional `image` guarda la ruta de la portada de la tarjeta. Los metadatos siguen siendo mínimos: se ampliarán solo cuando un contenido real lo exija (por ejemplo, módulos).
 
-Los archivos fuente PDF están en `src/cursos/R/`. No se publican ni se procesan en el build: son el material de referencia entregado por el usuario.
+Los archivos fuente PDF están en `src/cursos/R/`. No se publican ni se procesan en el build: son el material de referencia entregado por el usuario. Las ilustraciones SVG están en `public/images/` y se sirven tal cual.
 
-Convenciones de escritura: [content-conventions.md](content-conventions.md). Decisión: [ADR 0003](decisions/0003-curso-r-y-lecciones.md).
+Convenciones de escritura: [content-conventions.md](content-conventions.md). Decisiones: [ADR 0003](decisions/0003-curso-r-y-lecciones.md) y [ADR 0004](decisions/0004-direccion-visual-colorida.md).
 
 ## Flujo de build
 
 1. Astro lee `astro.config.mjs` (salida `static` y resaltado de código desactivado).
 2. Carga las colecciones declaradas y valida los esquemas.
 3. Renderiza `src/pages/` a HTML en `dist/`. Las rutas dinámicas consultan las colecciones y renderizan cada entrada Markdown con `render()`.
-4. Los estilos globales se procesan y se entregan como CSS estático.
+4. Los estilos globales se procesan y se entregan como CSS estático; los SVG de `public/` se copian sin transformación.
 
-No hay adapters, middleware, endpoints ni renderizado bajo demanda. Las soluciones ocultas usan `<details>` nativo: no hay JavaScript de cliente.
+No hay adapters, middleware, endpoints ni renderizado bajo demanda. Las soluciones ocultas usan `<details>` nativo y el grid de cursos es CSS puro: no hay JavaScript de cliente.
 
 ## Cómo incorporar contenido nuevo
 

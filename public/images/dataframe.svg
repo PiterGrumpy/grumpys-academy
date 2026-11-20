@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="titulo descripcion">
+  <title id="titulo">Estructura de un dataframe</title>
+  <desc id="descripcion">Tabla con tres columnas —meses, ventas y objetivos— cuyos tipos son texto, número y lógico respectivamente.</desc>
+  <rect width="640" height="360" rx="18" fill="#f6f8fb" />
+  <text x="32" y="48" fill="#17212b" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Un dataframe: columnas con tipos distintos</text>
+
+  <rect x="32" y="68" width="576" height="216" rx="12" fill="#ffffff" stroke="#d9e0e8" />
+  <path d="M44 68h152a12 12 0 0 1 12 12v36H32V80a12 12 0 0 1 12-12Z" fill="#e2f3f0" />
+  <path d="M224 68h152a12 12 0 0 1 12 12v36H212V80a12 12 0 0 1 12-12Z" fill="#f0e9fc" />
+  <path d="M404 68h192a12 12 0 0 1 12 12v36H392V80a12 12 0 0 1 12-12Z" fill="#fdf3d8" />
+  <g font-family="system-ui, sans-serif" font-size="14" font-weight="700">
+    <text x="50" y="98" fill="#0f766e">meses</text>
+    <text x="230" y="98" fill="#6d28d9">ventas</text>
+    <text x="410" y="98" fill="#a16207">objetivos</text>
+  </g>
+
+  <rect x="32" y="116" width="576" height="44" fill="#f6f8fb" />
+  <rect x="32" y="204" width="576" height="44" fill="#f6f8fb" />
+  <g fill="#17212b" font-family="ui-monospace, Consolas, monospace" font-size="14">
+    <text x="50" y="144">enero</text><text x="230" y="144">120</text><text x="410" y="144">TRUE</text>
+    <text x="50" y="188">febrero</text><text x="230" y="188">140</text><text x="410" y="188">TRUE</text>
+    <text x="50" y="232">marzo</text><text x="230" y="232">90</text><text x="410" y="232">FALSE</text>
+  </g>
+  <line x1="212" y1="116" x2="212" y2="284" stroke="#d9e0e8" />
+  <line x1="392" y1="116" x2="392" y2="284" stroke="#d9e0e8" />
+
+  <g font-family="ui-monospace, Consolas, monospace" font-size="12" font-weight="700" text-anchor="middle">
+    <rect x="50" y="302" width="60" height="28" rx="6" fill="#e2f3f0" /><text x="80" y="321" fill="#0f766e">chr</text>
+    <rect x="230" y="302" width="60" height="28" rx="6" fill="#f0e9fc" /><text x="260" y="321" fill="#6d28d9">num</text>
+    <rect x="410" y="302" width="60" height="28" rx="6" fill="#fdf3d8" /><text x="440" y="321" fill="#a16207">logi</text>
+  </g>
+  <text x="500" y="321" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Cada columna conserva su tipo.</text>
+</svg>

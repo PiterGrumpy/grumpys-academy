@@ -28,6 +28,8 @@ Al abrir RStudio verás varias zonas. Las que usaremos al principio son:
 | **Editor de scripts** | Zona donde escribes y guardas archivos `.R` para volver a ejecutarlos. |
 | **Files / Help**      | Explora archivos y consulta la documentación.                          |
 
+![Ventana de RStudio con la consola mostrando una suma y la creación de un vector, y el panel Environment con las variables](/images/r-consola.svg)
+
 Puedes escribir directamente en la consola para probar ideas, pero guarda el código importante en un **script**: un archivo de texto con instrucciones que puedes volver a ejecutar. Así tu trabajo es **reproducible**, es decir, otra persona —o tú dentro de un mes— puede obtener el mismo resultado.
 
 Para limpiar la consola usa `Ctrl+L` (`Cmd+L` en macOS). Para escribir una nota en el código, usa `#`: R ignora todo lo que aparece detrás de la almohadilla en esa línea.

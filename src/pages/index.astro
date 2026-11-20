@@ -1,14 +1,60 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CourseCard from '../components/CourseCard.astro';
+
+const [courses, lessons] = await Promise.all([getCollection('courses'), getCollection('lessons')]);
+
+const accents = ['var(--color-accent)', 'var(--color-accent-2)', 'var(--color-accent-3)'];
+
+const courseCards = [...courses]
+  .sort((a, b) => a.id.localeCompare(b.id, 'es'))
+  .map((course, index) => ({
+    course,
+    lessonCount: lessons.filter((lesson) => lesson.data.course === course.id).length,
+    accent: accents[index % accents.length],
+  }));
 ---
 
 <BaseLayout
   title="Grumpy's Academy"
-  description="Plataforma de aprendizaje de programación con contenidos claros y progresivos."
+  description="Cursos de programación en español con explicaciones claras, ejemplos y ejercicios."
 >
-  <main id="contenido" class="container page-main">
-    <h1>Grumpy's Academy</h1>
-    <p>Cursos de programación con explicaciones claras y ejemplos progresivos.</p>
-    <p><a href="/cursos/">Ver los cursos publicados</a></p>
+  <main id="contenido" class="container container--wide page-main">
+    <section class="hero" aria-labelledby="bienvenida">
+      <p class="hero__eyebrow">Aprende a tu ritmo</p>
+      <h1 id="bienvenida">Grumpy's Academy</h1>
+      <p class="hero__lead">
+        Cursos de programación con explicaciones claras, ejemplos que puedes probar y ejercicios
+        para practicar.
+      </p>
+      <p class="hero__note">
+        Puedes leer cada lección sin registro y volver a ella cuando quieras.
+      </p>
+    </section>
+
+    <section class="course-section" aria-labelledby="cursos-titulo">
+      <div class="section-heading">
+        <div>
+          <h2 id="cursos-titulo">Cursos publicados</h2>
+          <p>Elige un curso y abre su primera lección.</p>
+        </div>
+        <p class="section-heading__count">
+          {courses.length}
+          {courses.length === 1 ? 'curso' : 'cursos'} · {lessons.length}
+          {lessons.length === 1 ? ' lección' : ' lecciones'}
+        </p>
+      </div>
+
+      <ul class="course-grid">
+        {
+          courseCards.map(({ course, lessonCount, accent }) => (
+            <li>
+              <CourseCard course={course} lessonCount={lessonCount} accent={accent} />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
   </main>
 </BaseLayout>

@@ -31,6 +31,8 @@ datos
 3  marzo     90     FALSE
 ```
 
+![Tabla de un dataframe con columnas de texto, número y lógico y sus tipos chr, num y logi](/images/dataframe.svg)
+
 Las tres columnas tienen la misma longitud; `data.frame()` las alinea por posición. Cada columna sigue siendo un vector con su propio tipo.
 
 La función `str()` —de _structure_, estructura— muestra el tipo de cada columna y unos cuantos valores:

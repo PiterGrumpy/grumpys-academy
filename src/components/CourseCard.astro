@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  course: CollectionEntry<'courses'>;
+  lessonCount: number;
+  accent: string;
+}
+
+const { course, lessonCount, accent } = Astro.props;
+const lessonLabel = lessonCount === 1 ? 'lección' : 'lecciones';
+---
+
+<article class="course-card" style={`--card-accent: ${accent}`}>
+  <a class="course-card__link" href={`/cursos/${course.id}/`}>
+    {
+      course.data.image ? (
+        /* La portada es decorativa: el título del curso ya está en la tarjeta. */
+        <img
+          class="course-card__image"
+          src={course.data.image}
+          alt=""
+          width="640"
+          height="360"
+          loading="lazy"
+        />
+      ) : null
+    }
+    <div class="course-card__body">
+      <p class="course-card__meta">{lessonCount} {lessonLabel}</p>
+      <h3 class="course-card__title">{course.data.title}</h3>
+      <p class="course-card__description">{course.data.description}</p>
+      <span class="course-card__action">Ver el curso <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+</article>

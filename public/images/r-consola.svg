@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="titulo descripcion">
+  <title id="titulo">Consola de R con expresiones y resultados</title>
+  <desc id="descripcion">Ventana de RStudio con una consola donde se suman dos números y se crea un vector, y un panel de entorno con las variables.</desc>
+  <rect width="640" height="360" rx="18" fill="#f6f8fb" />
+  <rect x="24" y="24" width="592" height="312" rx="12" fill="#ffffff" stroke="#d9e0e8" />
+  <path d="M24 36a12 12 0 0 1 12-12h568a12 12 0 0 1 12 12v28H24Z" fill="#0f5c8c" />
+  <circle cx="48" cy="44" r="5" fill="#fbbf24" />
+  <circle cx="66" cy="44" r="5" fill="#8ec5ff" />
+  <circle cx="84" cy="44" r="5" fill="#5eead4" />
+  <text x="108" y="49" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="600">RStudio · Consola</text>
+
+  <text x="48" y="108" fill="#0f766e" font-family="ui-monospace, Consolas, monospace" font-size="19">&gt; 2 + 2</text>
+  <text x="48" y="138" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="19">[1] 4</text>
+  <text x="48" y="182" fill="#0f766e" font-family="ui-monospace, Consolas, monospace" font-size="19">&gt; numeros &lt;- c(1, 2, 3)</text>
+  <text x="48" y="212" fill="#475569" font-family="ui-monospace, Consolas, monospace" font-size="19">[1] 1 2 3</text>
+
+  <rect x="392" y="80" width="200" height="232" rx="8" fill="#f2f5f9" stroke="#d9e0e8" />
+  <text x="408" y="106" fill="#17212b" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Environment</text>
+  <line x1="408" y1="116" x2="576" y2="116" stroke="#d9e0e8" />
+  <rect x="408" y="132" width="168" height="36" rx="6" fill="#e2f3f0" />
+  <text x="418" y="155" fill="#0f766e" font-family="ui-monospace, Consolas, monospace" font-size="12">numeros  1 2 3</text>
+  <rect x="408" y="180" width="168" height="36" rx="6" fill="#e6f1f8" />
+  <text x="418" y="203" fill="#0f5c8c" font-family="ui-monospace, Consolas, monospace" font-size="12">resultado  4</text>
+  <text x="408" y="250" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Escribe una expresión y pulsa Enter.</text>
+  <text x="408" y="270" fill="#475569" font-family="system-ui, sans-serif" font-size="12">El resultado aparece debajo.</text>
+</svg>

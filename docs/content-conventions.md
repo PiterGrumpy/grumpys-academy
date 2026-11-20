@@ -17,6 +17,7 @@ Esquemas actuales en `src/content.config.ts`:
 # src/content/courses/r.md
 title: 'Introducción a R' # obligatorio, string
 description: 'Descripción breve' # obligatorio, string
+image: '/images/r-consola.svg' # opcional, string: portada de la tarjeta
 
 # src/content/lessons/*.md
 title: 'Vectores y matrices' # obligatorio, string
@@ -32,6 +33,7 @@ Los campos se ampliarán solo cuando un contenido real lo exija. No se añadirá
 - `src/content/courses/`: una entrada por curso (`r.md`).
 - `src/content/lessons/`: una entrada por lección, con `course` y `order`.
 - `src/cursos/R/`: PDF originales entregados por el usuario. Son material de referencia; no se publican ni se cargan como contenido.
+- `public/images/`: ilustraciones SVG locales. Se sirven tal cual; las portadas de curso se referencian desde el campo `image` del frontmatter.
 
 No existe todavía una colección de módulos. Si el curso crece, se documentará la decisión antes de crearla.
 
@@ -43,20 +45,21 @@ No existe todavía una colección de módulos. Si el curso crece, se documentar�
 - Consejos y advertencias como blockquote con etiqueta en negrita: `> **Consejo:** ...`, `> **Advertencia:** ...`.
 - Ejercicios integrados en la lección, con enunciado, pista o criterios de éxito cuando ayuden, y solución en `<details>` con `<summary>` descriptivo.
 - Tablas Markdown solo cuando la comparación aporte claridad.
-- Imágenes con texto alternativo y diagramas con descripción textual equivalente.
+- Imágenes con texto alternativo que explique la idea ilustrada; solo se usan SVG alojados en `public/images/`.
+- El texto alternativo no empieza por «imagen de» y describe el contenido, por ejemplo: `![Esquema de un vector y una matriz con sus celdas](/images/vectores-matrices.svg)`.
 - Sin HTML inline salvo los bloques nativos necesarios (por ejemplo, `details`).
 
 ## Elementos pedagógicos
 
-| Elemento              | Representación actual           | Estado                |
-| --------------------- | ------------------------------- | --------------------- |
-| Explicación           | Párrafos y encabezados Markdown | En uso                |
-| Código                | Bloque vallado con lenguaje     | En uso                |
-| Consejo / advertencia | Blockquote etiquetado           | En uso                |
-| Ejercicio             | Apartado `h3` con enunciado     | En uso                |
-| Solución oculta       | `<details>` + `<summary>`       | En uso                |
-| Tabla                 | Tabla Markdown                  | En uso                |
-| Imagen / diagrama     | Markdown + alternativa textual  | Convención disponible |
+| Elemento              | Representación actual           | Estado |
+| --------------------- | ------------------------------- | ------ |
+| Explicación           | Párrafos y encabezados Markdown | En uso |
+| Código                | Bloque vallado con lenguaje     | En uso |
+| Consejo / advertencia | Blockquote etiquetado           | En uso |
+| Ejercicio             | Apartado `h3` con enunciado     | En uso |
+| Solución oculta       | `<details>` + `<summary>`       | En uso |
+| Tabla                 | Tabla Markdown                  | En uso |
+| Imagen / diagrama     | Markdown SVG + alternativa      | En uso |
 
 No hay componentes personalizados para estos elementos: se resuelven con Markdown, HTML nativo y estilos globales.
 

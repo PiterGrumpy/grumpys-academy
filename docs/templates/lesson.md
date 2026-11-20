@@ -10,6 +10,8 @@ order: { { NÚMERO_DE_ORDEN } }
 
 {{EXPLICACIÓN INICIAL: empezar por lo conocido y avanzar paso a paso}}
 
+{{SI LA IDEA SE ENTIENDE MEJOR CON UN ESQUEMA: ![Descripción concreta de lo que muestra el esquema](/images/{{ILUSTRACIÓN}}.svg)}}
+
 ## {{APARTADO_1}}
 
 {{EXPLICACIÓN CLARA; DEFINIR AQUÍ LOS TÉCNICOS QUE APAREZCAN}}

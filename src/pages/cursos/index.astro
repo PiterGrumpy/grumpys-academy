@@ -1,23 +1,34 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import CourseCard from '../../components/CourseCard.astro';
 
-const courses = (await getCollection('courses')).sort((a, b) => a.id.localeCompare(b.id, 'es'));
+const [courses, lessons] = await Promise.all([getCollection('courses'), getCollection('lessons')]);
+
+const accents = ['var(--color-accent)', 'var(--color-accent-2)', 'var(--color-accent-3)'];
+
+const courseCards = [...courses]
+  .sort((a, b) => a.id.localeCompare(b.id, 'es'))
+  .map((course, index) => ({
+    course,
+    lessonCount: lessons.filter((lesson) => lesson.data.course === course.id).length,
+    accent: accents[index % accents.length],
+  }));
 ---
 
 <BaseLayout
   title="Cursos | Grumpy's Academy"
   description="Cursos de programación publicados en Grumpy's Academy."
 >
-  <main id="contenido" class="container page-main">
+  <main id="contenido" class="container container--wide page-main">
     <h1>Cursos</h1>
-    <p>Estos son los cursos publicados hasta ahora.</p>
-    <ul class="resource-list">
+    <p class="page-lead">Estos son los cursos publicados hasta ahora.</p>
+
+    <ul class="course-grid">
       {
-        courses.map((course) => (
+        courseCards.map(({ course, lessonCount, accent }) => (
           <li>
-            <a href={`/cursos/${course.id}/`}>{course.data.title}</a>
-            <p>{course.data.description}</p>
+            <CourseCard course={course} lessonCount={lessonCount} accent={accent} />
           </li>
         ))
       }

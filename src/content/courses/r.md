@@ -1,6 +1,7 @@
 ---
 title: 'Introducción a R'
 description: 'Primeros pasos con R y RStudio: variables, vectores, matrices, dataframes y listas para empezar a trabajar con datos.'
+image: '/images/r-consola.svg'
 ---
 
 # Introducción a R
