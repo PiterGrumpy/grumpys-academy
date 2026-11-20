@@ -1,0 +1,70 @@
+# Dependencias y salidas de build
+node_modules/
+dist/
+.astro/
+.output/
+.cache/
+.wrangler/
+.vercel/
+.netlify/
+
+# Archivos generados y cachés
+*.tsbuildinfo
+*.log
+logs/
+coverage/
+.npm/
+.eslintcache
+.parcel-cache/
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Entornos y secretos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# Sistemas operativos y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+*.swp
+*~
+
+# Estado local de asistentes de IA (NO incluir)
+.opencode/plans/
+.opencode/sessions/
+.opencode/state/
+.opencode/cache/
+.opencode/logs/
+.opencode/memory/local/
+.opencode/**/*.local.*
+opencode.local.jsonc
+opencode.jsonc.local
+AGENTS.local.md
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/projects/
+.claude/history.jsonl
+.claude/statsig/
+.agents/*.local.*
+.agents/sessions/
+.cursor/
+.windsurf/
+.aider*
+.continue/
+.tabnine/
+.ai/
+.ai-tmp/
+*.ai-tmp
+.mcp.local.json
+
+# Nota: se versionan AGENT.md, AGENTS.md, CLAUDE.md, MEMORY.md,
+# .opencode/skills/, opencode.jsonc, docs/ y las plantillas de contenido.

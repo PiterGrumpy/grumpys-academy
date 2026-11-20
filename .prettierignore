@@ -1,0 +1,8 @@
+node_modules
+dist
+.astro
+coverage
+package-lock.json
+
+# Documento de entrada del usuario: se conserva sin modificaciones
+instrucciones.md

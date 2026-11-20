@@ -1,0 +1,34 @@
+---
+# Plantilla de solución — no es contenido real
+title: 'Solución: {{NOMBRE_DEL_EJERCICIO}}'
+description: '{{QUÉ_SE_RESUELVE}}'
+---
+
+## Solución propuesta
+
+<details>
+<summary>Ver una posible solución</summary>
+
+### Resolución
+
+{{PASOS O IDEA GENERAL DE LA RESOLUCIÓN}}
+
+```{{LENGUAJE}}
+{{CÓDIGO_DE_LA_SOLUCIÓN}}
+```
+
+### Por qué funciona
+
+{{EXPLICACIÓN DEL RAZONAMIENTO, NO SOLO DEL RESULTADO}}
+
+### Conceptos utilizados
+
+- {{CONCEPTO_1: debe haberse explicado antes}}
+
+### Errores habituales
+
+- {{ERROR_1: por qué ocurre y cómo evitarlo}}
+
+</details>
+
+> Nota: en una web estática el contenido oculto sigue estando en el código fuente. La opacidad es pedagógica, no de seguridad.
