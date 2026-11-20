@@ -11,7 +11,7 @@ La restricción sigue siendo la misma: sitio estático, sin servicios externos, 
 
 ## Decisión
 
-- Ampliar la filosofía de diseño de `AGENT.md`: el color se usa para orientar y agrupar, nunca como adorno; las tarjetas y las imágenes son válidas cuando organizan o explican contenido real.
+- Ampliar la filosofía de diseño del proyecto: el color se usa para orientar y agrupar, nunca como adorno; las tarjetas y las imágenes son válidas cuando organizan o explican contenido real.
 - Definir una paleta de acentos (azul, teal, violeta y ámbar) con fondos suaves, documentada en `docs/visual-design.md` y verificada en tema claro y oscuro.
 - Mostrar los cursos en un grid de tarjetas en `/` y reutilizarlo en `/cursos/`. Cada tarjeta es un enlace con título, descripción y número de lecciones; el acento se aplica mediante la custom property `--card-accent`.
 - Crear `CourseCard.astro`: tiene dos usos reales, props tipadas y ningún JavaScript.

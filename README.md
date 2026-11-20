@@ -48,7 +48,7 @@ src/
 
 Las ilustraciones se sirven desde `public/images/`. Las lecciones están disponibles en `/cursos/r/`. El diseño visual y sus tokens están descritos en [diseño visual](docs/visual-design.md) (ADR 0004).
 
-La documentación completa está en `AGENT.md` (instrucciones), `MEMORY.md` (memoria) y `docs/`:
+La documentación completa está en `docs/`:
 
 - [Arquitectura](docs/architecture.md)
 - [Diseño visual](docs/visual-design.md)
@@ -59,4 +59,4 @@ La documentación completa está en `AGENT.md` (instrucciones), `MEMORY.md` (mem
 
 ## Contribución
 
-Leer `AGENT.md` antes de cualquier cambio. No añadir cursos ni contenido ficticio sin una petición explícita. El flujo está descrito en [CONTRIBUTING.md](CONTRIBUTING.md).
+No añadir cursos ni contenido ficticio sin una petición explícita. El flujo está descrito en [CONTRIBUTING.md](CONTRIBUTING.md).

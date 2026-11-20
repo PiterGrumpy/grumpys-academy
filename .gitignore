@@ -38,24 +38,10 @@ desktop.ini
 *.swp
 *~
 
-# Estado local de asistentes de IA (NO incluir)
-.opencode/plans/
-.opencode/sessions/
-.opencode/state/
-.opencode/cache/
-.opencode/logs/
-.opencode/memory/local/
-.opencode/**/*.local.*
-opencode.local.jsonc
-opencode.jsonc.local
-AGENTS.local.md
-CLAUDE.local.md
-.claude/settings.local.json
-.claude/projects/
-.claude/history.jsonl
-.claude/statsig/
-.agents/*.local.*
-.agents/sessions/
+# Instrucciones, skills, memoria y estado de asistentes de IA (NO incluir)
+.opencode/
+.claude/
+.agents/
 .cursor/
 .windsurf/
 .aider*
@@ -65,6 +51,14 @@ CLAUDE.local.md
 .ai-tmp/
 *.ai-tmp
 .mcp.local.json
-
-# Nota: se versionan AGENT.md, AGENTS.md, CLAUDE.md, MEMORY.md,
-# .opencode/skills/, opencode.jsonc, docs/ y las plantillas de contenido.
+opencode.jsonc
+opencode.local.jsonc
+opencode.jsonc.local
+AGENT.md
+AGENTS.md
+AGENT.local.md
+AGENTS.local.md
+CLAUDE.md
+CLAUDE.local.md
+MEMORY.md
+instrucciones.md

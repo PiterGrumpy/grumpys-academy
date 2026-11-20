@@ -2,7 +2,7 @@
 
 ## Antes de empezar
 
-1. Leer `AGENT.md` y `MEMORY.md`.
+1. Revisar la documentación en `docs/`, especialmente la arquitectura y las decisiones.
 2. Comprobar si la decisión que se va a tomar ya está documentada en `docs/decisions/`.
 3. No crear cursos, módulos, lecciones, ejercicios ni catálogos sin solicitud expresa.
 
@@ -21,7 +21,7 @@ npm run build
 ```
 
 5. Comprobar en `npm run dev` que la página sigue siendo legible en móvil y escritorio.
-6. Actualizar la documentación afectada y `MEMORY.md` si hay una decisión relevante.
+6. Actualizar la documentación afectada y escribir un ADR si hay una decisión relevante.
 7. Confirmar que no se ha añadido contenido ficticio.
 
 ## Mensajes de commit
@@ -35,6 +35,6 @@ Usar español, tono imperativo y alcance claro. Ejemplos:
 ## Qué NO hacer
 
 - Añadir dependencias "por comodidad" sin evaluar una solución nativa.
-- Copiar las instrucciones en `AGENTS.md`, `CLAUDE.md` u otros archivos: son punteros.
-- Versionar secretos, archivos de entorno privados ni estado local de agentes de IA.
+- Crear copias divergentes de la documentación: consolidar todo en `docs/`.
+- Versionar secretos, archivos de entorno privados ni estado local de herramientas de desarrollo.
 - Documentar funcionalidades planeadas como si ya existieran.

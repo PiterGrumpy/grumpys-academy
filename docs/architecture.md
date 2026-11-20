@@ -32,9 +32,8 @@ Contenido       src/content.config.ts   Definición de colecciones y esquemas
 Estilos         src/styles/global.css   Tokens y estilos base
 Recursos        public/                Favicon, ilustraciones SVG y estáticos sin procesar
 Configuración   astro.config.mjs, tsconfig.json, eslint.config.mjs,
-                .prettierrc.json, opencode.jsonc
-Documentación   AGENT.md, MEMORY.md, README.md, CONTRIBUTING.md, docs/
-Instrucciones   .opencode/skills/       Skills versionadas del agente
+                .prettierrc.json
+Documentación   README.md, CONTRIBUTING.md, docs/
 ```
 
 Regla de oro: el contenido nunca importa componentes y los componentes nunca contienen texto de curso.

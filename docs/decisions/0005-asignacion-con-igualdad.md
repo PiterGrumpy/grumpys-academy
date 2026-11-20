@@ -15,7 +15,7 @@ En R, `x = 10` y `x <- 10` son equivalentes en una asignación simple. Existen d
 - Explicar una sola vez, en la lección 1, que `<-` es equivalente y tradicional, y que conviene reconocerlo al leer documentación de R.
 - Añadir una advertencia junto a esa explicación: dentro de los paréntesis de una función `=` nombra un argumento, y para comparar se usa `==`.
 - Revisar las advertencias existentes sobre `=` frente a `==` para que sigan siendo correctas con la nueva convención.
-- Documentar la convención en `AGENT.md` y `docs/content-conventions.md`.
+- Documentar la convención en `docs/content-conventions.md`.
 
 ## Alternativas consideradas
 
