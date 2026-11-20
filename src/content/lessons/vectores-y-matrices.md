@@ -18,9 +18,9 @@ Todo lo que vimos sobre `class()` y los tipos numérico, lógico y carácter sig
 Un **vector** es una secuencia ordenada de valores del mismo tipo. Se crea con la función `c()` —de _combine_, combinar—, que junta los valores que le pasamos entre paréntesis separados por comas:
 
 ```r
-numeros <- c(4, 10, 5, 3)
-logicos <- c(TRUE, FALSE, TRUE)
-palabras <- c('enero', 'febrero', 'marzo')
+numeros = c(4, 10, 5, 3)
+logicos = c(TRUE, FALSE, TRUE)
+palabras = c('enero', 'febrero', 'marzo')
 
 numeros
 class(numeros)
@@ -69,12 +69,12 @@ c('a', 2)
 
 ### Dar nombre a los elementos
 
-La función `names()` asigna o consulta etiquetas para los elementos de un vector. Se usa con `<-`, igual que una variable:
+La función `names()` asigna o consulta etiquetas para los elementos de un vector. Se usa con `=`, igual que una variable:
 
 ```r
-ventas <- c(120, 140, 90)
-meses <- c('enero', 'febrero', 'marzo')
-names(ventas) <- meses
+ventas = c(120, 140, 90)
+meses = c('enero', 'febrero', 'marzo')
+names(ventas) = meses
 ventas
 ```
 
@@ -90,7 +90,7 @@ Los nombres no cambian los valores; solo permiten referirse a ellos por etiqueta
 Las operaciones aritméticas se aplican **elemento a elemento**: el primero con el primero, el segundo con el segundo, y así sucesivamente.
 
 ```r
-ventas <- c(120, 140, 90)
+ventas = c(120, 140, 90)
 ventas * 2
 ventas + c(10, 20, 30)
 ```
@@ -134,7 +134,7 @@ diff(ventas)
 Los operadores de comparación son `<`, `<=`, `>`, `>=`, `==` —igual— y `!=` —distinto—. Comparar un vector con un número devuelve un vector lógico con un resultado por elemento:
 
 ```r
-ventas <- c(120, 140, 90)
+ventas = c(120, 140, 90)
 ventas > 100
 ventas == 140
 ```
@@ -163,7 +163,7 @@ Al comparar dos vectores, R compara los elementos que ocupan la misma posición.
 Los corchetes `[ ]` seleccionan elementos de un vector. **En R el primer elemento es el 1**, no el 0.
 
 ```r
-numeros <- c(4, 10, 5, 3, 8, 2)
+numeros = c(4, 10, 5, 3, 8, 2)
 numeros[1]           # primero
 numeros[c(1, 4)]     # primero y cuarto
 numeros[2:5]         # del segundo al quinto
@@ -178,7 +178,7 @@ numeros[2:5]         # del segundo al quinto
 Si el vector tiene nombres, también puedes usarlos entre comillas:
 
 ```r
-names(numeros) <- c('a', 'b', 'c', 'd', 'e', 'f')
+names(numeros) = c('a', 'b', 'c', 'd', 'e', 'f')
 numeros['a']
 numeros[c('a', 'f')]
 ```
@@ -206,7 +206,7 @@ numeros[numeros >= 5]
 Una **matriz** guarda valores en dos dimensiones: filas y columnas. Se crea con `matrix()`, que recibe los datos y el número de filas —`nrow`— o de columnas —`ncol`—.
 
 ```r
-numeros <- 1:10       # los enteros del 1 al 10
+numeros = 1:10       # los enteros del 1 al 10
 matrix(numeros, nrow = 2)
 ```
 
@@ -231,10 +231,10 @@ matrix(numeros, nrow = 2, byrow = TRUE)
 Con dos vectores del mismo tamaño, `rbind()` crea una matriz juntándolos como filas. Después podemos poner nombres a filas y columnas con `rownames()` y `colnames()`:
 
 ```r
-empresa_1 <- c(120, 140, 90)
-empresa_2 <- c(100, 160, 110)
-ventas <- rbind(empresa_1, empresa_2)
-colnames(ventas) <- c('enero', 'febrero', 'marzo')
+empresa_1 = c(120, 140, 90)
+empresa_2 = c(100, 160, 110)
+ventas = rbind(empresa_1, empresa_2)
+colnames(ventas) = c('enero', 'febrero', 'marzo')
 ventas
 ```
 
@@ -339,8 +339,8 @@ También puedes seleccionar varias filas a la vez con `c()` o con un rango.
 Cuando una columna contiene palabras que se repiten —por ejemplo, tipos de animales— conviene tratarlas como **categorías**. Un **factor** es un vector que representa categorías y recuerda cuáles son los posibles valores, llamados **niveles**.
 
 ```r
-animales <- c('gato', 'perro', 'gato', 'mono', 'perro')
-categorias <- factor(animales)
+animales = c('gato', 'perro', 'gato', 'mono', 'perro')
+categorias = factor(animales)
 categorias
 ```
 
@@ -363,8 +363,8 @@ summary(categorias)
 Algunas categorías tienen un orden natural, como la temperatura. El argumento `levels` indica ese orden y `ordered = TRUE` lo conserva:
 
 ```r
-temperaturas <- c('caliente', 'frio', 'templado', 'frio')
-temperaturas_ordenadas <- factor(
+temperaturas = c('caliente', 'frio', 'templado', 'frio')
+temperaturas_ordenadas = factor(
   temperaturas,
   levels = c('frio', 'templado', 'caliente'),
   ordered = TRUE
@@ -457,8 +457,8 @@ Crea un vector `ventas` con los valores `120`, `140` y `90`. Asigna como nombres
 #### Resolución
 
 ```r
-ventas <- c(120, 140, 90)
-names(ventas) <- c('enero', 'febrero', 'marzo')
+ventas = c(120, 140, 90)
+names(ventas) = c('enero', 'febrero', 'marzo')
 ventas
 mean(ventas)
 ```
@@ -483,7 +483,7 @@ enero febrero  marzo
 #### Errores habituales
 
 - Asignar los nombres en otro orden: las etiquetas quedarían mal emparejadas sin que R avise.
-- Escribir `names(ventas) = meses`: usa `<-` para asignar.
+- Escribir `names(ventas) == meses`: `==` compara y no asigna etiquetas.
 
 </details>
 
@@ -499,13 +499,13 @@ Usando el vector `ventas` del ejercicio anterior, crea un vector solo con los me
 #### Resolución
 
 ```r
-ventas <- c(120, 140, 90)
-names(ventas) <- c('enero', 'febrero', 'marzo')
+ventas = c(120, 140, 90)
+names(ventas) = c('enero', 'febrero', 'marzo')
 
-altas <- ventas[ventas > 100]
+altas = ventas[ventas > 100]
 altas
 
-mes_maximo <- names(ventas)[ventas == max(ventas)]
+mes_maximo = names(ventas)[ventas == max(ventas)]
 mes_maximo
 ```
 
@@ -528,7 +528,7 @@ enero febrero
 
 #### Errores habituales
 
-- Usar `=` en lugar de `==` en la comparación: `=` intenta asignar y no filtra.
+- Usar `=` en lugar de `==` en la comparación: `=` asigna o nombra argumentos, pero no compara, así que el filtro no funciona.
 - Quedarse con el valor máximo en vez de su nombre: `max(ventas)` devuelve `140`, no `febrero`.
 
 </details>
@@ -543,9 +543,9 @@ Crea una matriz de dos filas y cuatro columnas a partir de estos vectores: `c(4,
 #### Resolución
 
 ```r
-fila_1 <- c(4, 10, 5, 3)
-fila_2 <- c(2, 8, 25, 14)
-matriz <- rbind(fila_1, fila_2)
+fila_1 = c(4, 10, 5, 3)
+fila_2 = c(2, 8, 25, 14)
+matriz = rbind(fila_1, fila_2)
 matriz
 ```
 
@@ -581,7 +581,7 @@ Crea una matriz con los números del 1 al 24 en 6 filas, rellena por filas. Obt�
 #### Resolución
 
 ```r
-matriz <- matrix(1:24, nrow = 6, byrow = TRUE)
+matriz = matrix(1:24, nrow = 6, byrow = TRUE)
 matriz[3, 4]
 matriz[1:3, 1:2]
 ```
@@ -624,9 +624,9 @@ Partiendo de la matriz del ejercicio 5, añade una columna nueva con la suma de 
 #### Resolución
 
 ```r
-matriz <- matrix(1:24, nrow = 6, byrow = TRUE)
-totales <- rowSums(matriz)
-matriz_con_totales <- cbind(matriz, total = totales)
+matriz = matrix(1:24, nrow = 6, byrow = TRUE)
+totales = rowSums(matriz)
+matriz_con_totales = cbind(matriz, total = totales)
 matriz_con_totales
 ```
 

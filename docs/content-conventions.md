@@ -41,6 +41,7 @@ No existe todavía una colección de módulos. Si el curso crece, se documentar�
 
 - Un `h1` por documento; después `h2`, `h3`, `h4` sin saltos.
 - Bloques de código con lenguaje explícito: `r, `js, `html, `css.
+- En el curso de R se usa `=` para asignar (`numero = 10`). Se menciona `<-` como forma tradicional que aparece en la documentación, y se distingue tanto de los argumentos nombrados dentro de funciones como de `==` para comparar. Decisión en ADR 0005.
 - El resultado esperado se muestra en un bloque `text` después del código cuando aporte claridad.
 - Consejos y advertencias como blockquote con etiqueta en negrita: `> **Consejo:** ...`, `> **Advertencia:** ...`.
 - Ejercicios integrados en la lección, con enunciado, pista o criterios de éxito cuando ayuden, y solución en `<details>` con `<summary>` descriptivo.

@@ -83,10 +83,10 @@ También puedes usar la potencia `^` y el resto de una división entera `%%`:
 
 ## Variables
 
-Una **variable** es un nombre que guarda un valor para usarlo después. En R se crea con el operador de asignación `<-`, que se lee como «recibe»:
+Una **variable** es un nombre que guarda un valor para usarlo después. En R se crea asignándole un valor con `=`:
 
 ```r
-numero <- 10
+numero = 10
 numero
 ```
 
@@ -97,9 +97,9 @@ numero
 Puedes asignar texto, números y resultados de operaciones:
 
 ```r
-nombre <- 'Ana'
-numero <- 10
-suma <- 4 + 5
+nombre = 'Ana'
+numero = 10
+suma = 4 + 5
 nombre
 numero
 suma
@@ -111,13 +111,15 @@ suma
 [1] 9
 ```
 
-El signo `=` también asigna valores en R, pero la convención es usar `<-`. Así se distingue de los argumentos de las funciones, que sí se escriben con `=` y veremos en la siguiente lección.
+R también admite el operador `<-`, que se lee «recibe» y hace exactamente lo mismo: `numero <- 10` y `numero = 10` son equivalentes. Es la forma tradicional y aparece en gran parte de la documentación de R, así que conviene reconocerla aunque en este curso usemos `=` por comodidad.
+
+> **Advertencia:** dentro de los paréntesis de una función, `=` no crea una variable: nombra un argumento, como en `print(x = 'Hola')`. Para comparar dos valores usa `==`, nunca `=`.
 
 Si asignas un valor nuevo a una variable que ya existía, su contenido cambia. El lado derecho se calcula antes de guardarse, así que puedes usar el valor anterior:
 
 ```r
-numero <- 10
-numero <- numero + 5
+numero = 10
+numero = numero + 5
 numero
 ```
 
@@ -130,8 +132,8 @@ numero
 Los nombres pueden usar letras, números, punto (`.`) y guion bajo (`_`), pero no empiezan por un número ni contienen espacios. Para nombres con varias palabras, usa guiones bajos o puntos en minúsculas; elige uno y mantén el mismo estilo. En este curso usaremos guion bajo:
 
 ```r
-ventas_totales <- 1200
-precio.unitario <- 15  # también es válido
+ventas_totales = 1200
+precio.unitario = 15  # también es válido
 ```
 
 > **Consejo:** un nombre descriptivo evita tener que recordar qué guarda una variable. `ventas_totales` es mejor que `x`.
@@ -168,7 +170,7 @@ El texto puede ir entre comillas simples o dobles; ambas son equivalentes. Sí i
 
 - R es el lenguaje y RStudio el entorno donde escribimos y ejecutamos código.
 - La consola ejecuta expresiones; un script `.R` permite guardarlas y repetirlas.
-- `<-` asigna valores a variables y `#` introduce comentarios.
+- `=` asigna valores a variables y `#` introduce comentarios.
 - `+`, `-`, `*`, `/`, `^`, `%%` y `%/%` realizan operaciones aritméticas.
 - `class()` revela el tipo: numérico, lógico o carácter.
 
@@ -225,8 +227,8 @@ Crea una variable `edad` con un número entero y otra `nombre` con tu nombre. Mu
 #### Resolución
 
 ```r
-edad <- 30
-nombre <- 'Ana'
+edad = 30
+nombre = 'Ana'
 edad
 nombre
 class(edad)
@@ -242,18 +244,18 @@ class(nombre)
 
 #### Por qué funciona
 
-`<-` guarda cada valor bajo su nombre. `class()` no modifica nada: solo devuelve el tipo del objeto que recibe. Como `30` se escribió sin comillas es numérico, y `'Ana'` es carácter.
+`=` guarda cada valor bajo su nombre. `class()` no modifica nada: solo devuelve el tipo del objeto que recibe. Como `30` se escribió sin comillas es numérico, y `'Ana'` es carácter.
 
 #### Conceptos utilizados
 
-- Asignación con `<-`.
+- Asignación con `=`.
 - Diferencia entre texto y número.
 - Función `class()`.
 
 #### Errores habituales
 
-- Escribir `nombre <- Ana`: R busca un objeto llamado `Ana` y avisa de que no existe.
-- Escribir `edad <- '30'`: la edad sería texto y `class()` devolvería `"character"`.
+- Escribir `nombre = Ana`: R busca un objeto llamado `Ana` y avisa de que no existe.
+- Escribir `edad = '30'`: la edad sería texto y `class()` devolvería `"character"`.
 
 </details>
 
@@ -269,10 +271,10 @@ Un cuaderno cuesta 3.5 y necesitas 4. Además, el envío cuesta 2. Calcula el to
 #### Resolución
 
 ```r
-precio_cuaderno <- 3.5
-cantidad <- 4
-envio <- 2
-total <- precio_cuaderno * cantidad + envio
+precio_cuaderno = 3.5
+cantidad = 4
+envio = 2
+total = precio_cuaderno * cantidad + envio
 total
 ```
 
@@ -307,9 +309,9 @@ Una cuenta empieza con 50 unidades. Se retiran 12 y después se añade el doble 
 #### Resolución
 
 ```r
-saldo <- 50
-saldo <- saldo - 12
-saldo <- saldo + saldo * 2
+saldo = 50
+saldo = saldo - 12
+saldo = saldo + saldo * 2
 saldo
 ```
 

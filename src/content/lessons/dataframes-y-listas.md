@@ -16,11 +16,11 @@ Un **dataframe** es una tabla cuyas columnas pueden tener tipos distintos. Una *
 Partimos de tres vectores del mismo tamaño. Cada uno será una columna:
 
 ```r
-meses <- c('enero', 'febrero', 'marzo')
-ventas <- c(120, 140, 90)
-objetivos <- c(TRUE, TRUE, FALSE)
+meses = c('enero', 'febrero', 'marzo')
+ventas = c(120, 140, 90)
+objetivos = c(TRUE, TRUE, FALSE)
 
-datos <- data.frame(meses, ventas, objetivos)
+datos = data.frame(meses, ventas, objetivos)
 datos
 ```
 
@@ -166,14 +166,14 @@ Un archivo **CSV** es un texto con valores separados por comas, ideal para inter
 
 ```r
 write.csv(datos, 'ventas.csv', row.names = FALSE)
-datos_leidos <- read.csv('ventas.csv')
+datos_leidos = read.csv('ventas.csv')
 datos_leidos
 ```
 
 El argumento `row.names = FALSE` evita que se guarde una columna extra con los números de fila. Si olvidas este argumento, al leer el archivo aparecerá una columna llamada `X`. Puedes eliminarla asignándole `NULL`:
 
 ```r
-datos_leidos$X <- NULL
+datos_leidos$X = NULL
 ```
 
 Asignar `NULL` a una columna la elimina del dataframe.
@@ -185,18 +185,18 @@ Asignar `NULL` a una columna la elimina del dataframe.
 `rbind()` apila dataframes por filas, siempre que tengan las mismas columnas:
 
 ```r
-fila_nueva <- data.frame(
+fila_nueva = data.frame(
   meses = 'abril',
   ventas = 105,
   objetivos = TRUE
 )
-datos_completos <- rbind(datos, fila_nueva)
+datos_completos = rbind(datos, fila_nueva)
 ```
 
 Para crear una columna nueva, asígnale un vector calculado a través de `$`:
 
 ```r
-datos$doble <- datos$ventas * 2
+datos$doble = datos$ventas * 2
 datos
 ```
 
@@ -204,8 +204,8 @@ Las funciones `colnames()` y `rownames()` consultan o cambian los nombres de col
 
 ```r
 colnames(datos)                       # consulta
-colnames(datos) <- c('mes', 'total', 'logrado', 'doble')  # renombra todos
-colnames(datos)[4] <- 'ventas_dobles'  # renombra solo la cuarta
+colnames(datos) = c('mes', 'total', 'logrado', 'doble')  # renombra todos
+colnames(datos)[4] = 'ventas_dobles'  # renombra solo la cuarta
 ```
 
 ## Valores ausentes
@@ -225,8 +225,8 @@ any(is.na(mtcars))
 Para sustituir los valores ausentes por otro valor, selecciónalos con el filtro y asígnales el nuevo valor:
 
 ```r
-datos_limpios <- mtcars
-datos_limpios[is.na(datos_limpios)] <- 0
+datos_limpios = mtcars
+datos_limpios[is.na(datos_limpios)] = 0
 ```
 
 > **Advertencia:** las comparaciones con `NA` devuelven `NA`, no `TRUE` ni `FALSE`. Por eso no basta con escribir `datos == NA`; usa siempre `is.na()`.
@@ -236,9 +236,9 @@ datos_limpios[is.na(datos_limpios)] <- 0
 Una **lista** agrupa objetos distintos en una sola variable. A diferencia del vector, sus elementos pueden tener tipos y formas diferentes:
 
 ```r
-vector_numeros <- c(1, 2, 3)
-matriz_datos <- matrix(1:6, nrow = 2)
-mi_lista <- list(vector_numeros, matriz_datos, datos)
+vector_numeros = c(1, 2, 3)
+matriz_datos = matrix(1:6, nrow = 2)
+mi_lista = list(vector_numeros, matriz_datos, datos)
 mi_lista
 ```
 
@@ -255,7 +255,7 @@ class(mi_lista[[3]]) # "data.frame"
 También puedes dar nombre a los elementos y acceder por ese nombre con `$`:
 
 ```r
-names(mi_lista) <- c('numeros', 'matriz', 'datos')
+names(mi_lista) = c('numeros', 'matriz', 'datos')
 mi_lista$numeros
 ```
 
@@ -268,7 +268,7 @@ str(mi_lista)
 También puedes extraer un elemento y guardarlo en otra variable. La nueva variable tendrá el mismo tipo que el elemento extraído:
 
 ```r
-tabla <- mi_lista[[3]]
+tabla = mi_lista[[3]]
 class(tabla)
 ```
 
@@ -298,11 +298,11 @@ Crea tres vectores para tres personas —nombre, edad y sexo— y únelos en un 
 #### Resolución
 
 ```r
-nombres <- c('Antonio', 'María', 'Juan')
-edades <- c(40, 30, 35)
-sexo <- c('M', 'F', 'M')
+nombres = c('Antonio', 'María', 'Juan')
+edades = c(40, 30, 35)
+sexo = c('M', 'F', 'M')
 
-personas <- data.frame(nombres, edades, sexo)
+personas = data.frame(nombres, edades, sexo)
 personas
 str(personas)
 ```
@@ -343,7 +343,7 @@ Guarda el conjunto `mtcars` en una variable `coches`. Comprueba que es un datafr
 #### Resolución
 
 ```r
-coches <- mtcars
+coches = mtcars
 is.data.frame(coches)
 head(coches)
 ```
@@ -437,7 +437,7 @@ Ambas formas devuelven tres coches: Cadillac Fleetwood, Lincoln Continental y Ch
 
 #### Errores habituales
 
-- Escribir `cyl = 8` dentro de la condición: `=` asigna, `==` compara.
+- Escribir `cyl = 8` dentro de la condición: `=` asigna o nombra argumentos; para comparar usa `==`.
 - Usar `&&` en lugar de `&`: la forma doble solo evalúa el primer elemento y no filtra fila por fila.
 
 </details>
@@ -452,7 +452,7 @@ Añade a `coches` una columna llamada `rendimiento` que sea el resultado de divi
 #### Resolución
 
 ```r
-coches$rendimiento <- coches$hp / coches$wt
+coches$rendimiento = coches$hp / coches$wt
 head(coches[, c('mpg', 'hp', 'wt', 'rendimiento')])
 ```
 
@@ -490,10 +490,10 @@ Crea una lista que contenga un vector numérico del 1 al 5, un vector con tres n
 #### Resolución
 
 ```r
-numeros <- 1:5
-frutas <- c('manzana', 'pera', 'plátano')
-mi_lista <- list(numeros, frutas, TRUE)
-names(mi_lista) <- c('numeros', 'frutas', 'logico')
+numeros = 1:5
+frutas = c('manzana', 'pera', 'plátano')
+mi_lista = list(numeros, frutas, TRUE)
+names(mi_lista) = c('numeros', 'frutas', 'logico')
 
 str(mi_lista)
 mi_lista[[2]]
