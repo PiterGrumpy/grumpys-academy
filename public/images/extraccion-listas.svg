@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" role="img" aria-labelledby="titulo descripcion">
+  <title id="titulo">Dos formas de extraer elementos de una lista</title>
+  <desc id="descripcion">Una lista llamada mi_lista contiene un vector, una matriz y un dataframe. mi_lista[[2]] devuelve la matriz original y mi_lista$datos devuelve el dataframe original; en cambio mi_lista[1] devuelve una lista con un solo elemento.</desc>
+  <defs>
+    <marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0l10 5L0 10Z" fill="#0f5c8c" />
+    </marker>
+  </defs>
+  <rect width="640" height="340" rx="18" fill="#f6f8fb" />
+  <text x="32" y="44" fill="#17212b" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Extraer el objeto original de una lista</text>
+
+  <g font-family="system-ui, sans-serif">
+    <rect x="32" y="96" width="180" height="180" rx="10" fill="#ffffff" stroke="#d9e0e8" />
+    <text x="122" y="126" text-anchor="middle" fill="#17212b" font-size="16" font-weight="700">mi_lista</text>
+    <text x="122" y="150" text-anchor="middle" fill="#475569" font-size="12">objetos distintos</text>
+    <rect x="50" y="168" width="144" height="26" rx="6" fill="#e6f1f8" />
+    <text x="122" y="186" text-anchor="middle" fill="#0f5c8c" font-size="13">1. numeros</text>
+    <rect x="50" y="202" width="144" height="26" rx="6" fill="#e2f3f0" />
+    <text x="122" y="220" text-anchor="middle" fill="#0f766e" font-size="13">2. matriz</text>
+    <rect x="50" y="236" width="144" height="26" rx="6" fill="#f0e9fc" />
+    <text x="122" y="254" text-anchor="middle" fill="#6d28d9" font-size="13">3. datos</text>
+
+    <rect x="252" y="72" width="188" height="100" rx="10" fill="#e2f3f0" stroke="#0f766e" />
+    <text x="346" y="102" text-anchor="middle" fill="#0f766e" font-size="15" font-weight="700">mi_lista[[2]]</text>
+    <text x="346" y="128" text-anchor="middle" fill="#475569" font-size="13">Devuelve el objeto original</text>
+    <text x="346" y="152" text-anchor="middle" fill="#17212b" font-size="13">la matriz</text>
+
+    <rect x="252" y="190" width="188" height="100" rx="10" fill="#f0e9fc" stroke="#6d28d9" />
+    <text x="346" y="220" text-anchor="middle" fill="#6d28d9" font-size="15" font-weight="700">mi_lista$datos</text>
+    <text x="346" y="246" text-anchor="middle" fill="#475569" font-size="13">Devuelve el objeto original</text>
+    <text x="346" y="270" text-anchor="middle" fill="#17212b" font-size="13">el dataframe</text>
+
+    <path d="M212 214h36" stroke="#0f5c8c" stroke-width="2" fill="none" marker-end="url(#flecha)" />
+    <path d="M212 250h36" stroke="#0f5c8c" stroke-width="2" fill="none" marker-end="url(#flecha)" />
+
+    <rect x="456" y="96" width="152" height="194" rx="10" fill="#fdf3d8" stroke="#a16207" />
+    <text x="532" y="126" text-anchor="middle" fill="#854d0e" font-size="14" font-weight="700">Ojo con [ ]</text>
+    <text x="470" y="158" fill="#475569" font-size="13">mi_lista[1] devuelve</text>
+    <text x="470" y="180" fill="#475569" font-size="13">una lista con un</text>
+    <text x="470" y="202" fill="#475569" font-size="13">solo elemento.</text>
+    <text x="470" y="238" fill="#475569" font-size="13">Para trabajar con</text>
+    <text x="470" y="260" fill="#475569" font-size="13">el objeto usa [[ ]].</text>
+  </g>
+</svg>

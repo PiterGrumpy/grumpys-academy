@@ -9,6 +9,8 @@ Estas plantillas son **guías de escritura**, no contenido de la plataforma. Nin
 3. Eliminar las notas de guía entre comentarios.
 4. Comprobar `docs/content-conventions.md`, `docs/pedagogical-methodology.md` y el esquema de `src/content.config.ts`.
 5. No conservar texto de relleno: si una sección no aporta información, eliminarla.
+6. Toda lección incluye un único mini-proyecto final; reproduce la sección `## Mini-proyecto` de [lesson.md](lesson.md) en lugar de cerrar con preguntas.
+7. Si la lección pertenece a una unidad, rellena `unit` con el nombre público y representativo de esa unidad, sin códigos; todas las lecciones de la unidad deben coincidir (ADR 0015).
 
 ## Plantillas
 

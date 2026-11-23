@@ -1,6 +1,8 @@
 ---
 # Plantilla de módulo — no es contenido real
 # Nota: actualmente no existe una colección propia para módulos.
+# Las unidades publicadas se representan con el campo `unit` en cada lección y
+# se muestran como desplegables en la página del curso (ADR 0015).
 # Los metadatos se ajustarán cuando se solicite el primer curso.
 title: '{{NOMBRE_DEL_MÓDULO}}'
 description: '{{QUÉ_APORTA_ESTE_MÓDULO_AL_CURSO}}'

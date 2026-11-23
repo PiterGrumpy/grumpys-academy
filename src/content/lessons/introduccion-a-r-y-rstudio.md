@@ -335,3 +335,55 @@ Tras la retirada quedan `50 - 12 = 38`. En la última línea, el lado derecho se
 - Crear una variable nueva en cada paso y perder la pista de cuál es el saldo vigente.
 
 </details>
+
+## Mini-proyecto: presupuesto de material
+
+Reúne variables, operaciones y tipos en un script que calcule el coste de unos materiales. Crea `presupuesto.R` con variables para `cuadernos`, `precio_cuaderno`, `boligrafos`, `precio_boligrafo` y `envio`. Calcula `subtotal` y `total` en dos expresiones separadas, muestra `total` y comprueba su tipo con `class(total)`. Añade un comentario que explique por qué el envío se suma al final.
+
+Usa estos datos: cuatro cuadernos a 3.5, cinco bolígrafos a 1.2 y un envío de 2.5.
+
+**Criterios de aceptación:** el total es 22.5; `class(total)` devuelve `"numeric"`; el script usa al menos cinco variables y un comentario; `total` se calcula a partir de variables, no escribiendo el resultado a mano.
+
+<details>
+<summary>Ver una posible solución del mini-proyecto</summary>
+
+#### Resolución
+
+```r
+# El envío es un coste único, por eso se suma después del subtotal
+cuadernos = 4
+precio_cuaderno = 3.5
+boligrafos = 5
+precio_boligrafo = 1.2
+envio = 2.5
+
+subtotal = cuadernos * precio_cuaderno + boligrafos * precio_boligrafo
+total = subtotal + envio
+
+total
+class(total)
+```
+
+```text
+[1] 22.5
+[1] "numeric"
+```
+
+#### Por qué funciona
+
+Las multiplicaciones se resuelven antes que las sumas: `4 * 3.5 = 14` y `5 * 1.2 = 6`, así que `subtotal = 20`. Después se añade el envío una sola vez: `20 + 2.5 = 22.5`. Guardar cada dato en su variable permite cambiar un precio sin reescribir toda la cuenta. Como el resultado es un número, `class(total)` devuelve `"numeric"`.
+
+#### Conceptos utilizados
+
+- Asignación con `=` y nombres descriptivos.
+- Precedencia de operadores.
+- Comentarios con `#`.
+- Comprobación de tipo con `class()`.
+
+#### Errores habituales
+
+- Sumar el envío dentro del subtotal y volver a sumarlo después.
+- Escribir los precios entre comillas: serían texto y la multiplicación fallaría.
+- Calcular `total` a mano en lugar de usar las variables.
+
+</details>

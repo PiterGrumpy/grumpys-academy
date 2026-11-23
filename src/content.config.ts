@@ -14,6 +14,7 @@ const courses = defineCollection({
 
 // `course` guarda el id de la entrada de courses a la que pertenece la lección.
 // `order` define la posición de la lección dentro de ese curso.
+// `unit`, cuando existe, es el nombre público de la unidad y agrupa la lección en un desplegable.
 const lessons = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/lessons' }),
   schema: z.object({
@@ -21,6 +22,7 @@ const lessons = defineCollection({
     description: z.string(),
     course: z.string(),
     order: z.number().int().positive(),
+    unit: z.string().optional(),
   }),
 });
 

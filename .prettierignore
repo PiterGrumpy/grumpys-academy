@@ -4,5 +4,7 @@ dist
 coverage
 package-lock.json
 
-# Documento de entrada del usuario: se conserva sin modificaciones
+# Documentos de entrada del usuario: se conservan sin modificaciones
 instrucciones.md
+src/cursos/Python/CONTENIDO_CURSO_PYTHON.md
+src/cursos/Python/SKILL_DESARROLLO_LECCIONES_PYTHON.md

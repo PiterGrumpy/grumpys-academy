@@ -58,6 +58,22 @@ summary(datos)
 
 > **Consejo:** usa `str()` siempre que recibas un dataframe nuevo. Es la forma más rápida de saber con qué tipos de datos estás trabajando.
 
+### Comprobar si un objeto es un dataframe
+
+A veces solo queremos responder una pregunta concreta: «¿es este objeto un dataframe?». La función `is.data.frame()` devuelve `TRUE` si lo es y `FALSE` en caso contrario:
+
+```r
+is.data.frame(datos)
+is.data.frame(ventas)
+```
+
+```text
+[1] TRUE
+[1] FALSE
+```
+
+`datos` es el dataframe que acabamos de crear y `ventas` es el vector numérico del principio de la lección. `is.data.frame()` no modifica el objeto: solo comprueba su tipo. `class(datos)` devuelve `"data.frame"` y lo describe en general; esta función se limita a responder la pregunta. Las funciones cuyo nombre empieza por `is.` se llaman **funciones de comprobación**; más adelante veremos `is.na()` para detectar valores ausentes.
+
 ## Conjuntos de datos incluidos
 
 R trae consigo varios conjuntos de datos de ejemplo. La función `data()` abre la lista de los disponibles. Dos de los más usados son:
@@ -139,6 +155,8 @@ El símbolo `&` significa «y» y permite combinar dos condiciones:
 subset(mtcars, cyl == 8 & disp > 400)
 ```
 
+> **Advertencia:** no confundas `&` con `&&`: la forma doble solo evalúa el primer elemento de cada condición y no sirve para filtrar filas.
+
 ### Ordenar filas
 
 La función `order()` devuelve las posiciones que ordenan un vector de menor a mayor. Al usar ese resultado entre corchetes, se ordenan las filas:
@@ -154,7 +172,7 @@ datos[order(datos$ventas), ]
 2 febrero    140      TRUE
 ```
 
-Para ordenar de mayor a menor, basta con anteponer un signo menos al vector dentro de `order()`:
+Para ordenar de mayor a menor, basta con anteponer un signo menos al vector dentro de `order()` —esto funciona con columnas numéricas—:
 
 ```r
 datos[order(-datos$ventas), ]
@@ -250,6 +268,8 @@ class(mi_lista[[2]]) # "matrix"
 class(mi_lista[[3]]) # "data.frame"
 ```
 
+![Esquema de mi_lista: mi_lista[[2]] devuelve la matriz original, mi_lista$datos devuelve el dataframe y mi_lista[1] devuelve una lista con un solo elemento](/images/extraccion-listas.svg)
+
 > **Advertencia:** `mi_lista[1]` no devuelve el vector, sino una lista que contiene el vector. Para trabajar con el objeto usa `[[ ]]`.
 
 También puedes dar nombre a los elementos y acceder por ese nombre con `$`:
@@ -279,6 +299,7 @@ class(tabla)
 ## Resumen
 
 - `data.frame()` crea tablas con columnas de tipos distintos; `str()` y `summary()` las describen.
+- `is.data.frame()` comprueba si un objeto es un dataframe y devuelve `TRUE` o `FALSE`.
 - `data()` muestra los conjuntos de datos incluidos, como `AirPassengers` y `mtcars`.
 - `[fila, columna]`, `$`, `subset()` y `order()` permiten seleccionar, filtrar y ordenar.
 - `write.csv()` y `read.csv()` guardan y leen tablas; `row.names = FALSE` evita una columna extra.
@@ -326,7 +347,7 @@ Cada vector se convierte en una columna y se alinean por posición: el primer no
 
 #### Errores habituales
 
-- Usar vectores de distinta longitud: `data.frame()` avisa y los recicla.
+- Usar vectores de distinta longitud: `data.frame()` solo recicla el vector más corto si su longitud divide exactamente a la del más largo; si no, devuelve un error.
 - Olvidar las comillas en los nombres o en el sexo: R los buscaría como objetos.
 
 </details>
@@ -457,10 +478,13 @@ head(coches[, c('mpg', 'hp', 'wt', 'rendimiento')])
 ```
 
 ```text
-                     mpg  hp    wt rendimiento
-Mazda RX4           21.0 110 2.620    41.98473
-Mazda RX4 Wag       21.0 110 2.875    38.26087
-Datsun 710          22.8  93 2.320    40.08621
+                   mpg  hp    wt rendimiento
+Mazda RX4         21.0 110 2.620    41.98473
+Mazda RX4 Wag     21.0 110 2.875    38.26087
+Datsun 710        22.8  93 2.320    40.08621
+Hornet 4 Drive    21.4 110 3.215    34.21462
+Hornet Sportabout 18.7 175 3.440    50.87209
+Valiant           18.1 105 3.460    30.34682
 ```
 
 #### Por qué funciona
@@ -525,5 +549,70 @@ List of 3
 
 - Usar `c()` en lugar de `list()`: todos los valores se convertirían en texto.
 - Usar `[ ]` en vez de `[[ ]]`: el resultado sería una lista, no el vector.
+
+</details>
+
+## Mini-proyecto: ficha de equipo
+
+Construye una ficha con dataframe, `NA`, filtros, ordenación, CSV y lista en un solo script. Crea `equipo` con columnas `nombre`, `horas` y `nota` para Ana (10, 7), Bruno (12, `NA`) y Carla (8, 9). Añade una fila para Diego (11, 6) con `rbind()`. Calcula `promedio_horas`, filtra con `subset()` a quienes tienen nota igual o superior a 6 sin contar `NA`, ordena por `nota`, guarda y lee `equipo.csv`, y reúne el dataframe, el promedio y los datos leídos en una lista `informe`. Extrae el promedio por posición y el dataframe por nombre.
+
+**Criterios de aceptación:** `promedio_horas` vale 10.25; `aprobados` contiene a Ana, Carla y Diego; `ordenados` empieza por Diego y termina por Bruno; `informe[[2]]` devuelve el promedio e `informe$equipo` devuelve las cuatro filas.
+
+<details>
+<summary>Ver una posible solución del mini-proyecto</summary>
+
+#### Resolución
+
+```r
+equipo = data.frame(
+  nombre = c('Ana', 'Bruno', 'Carla'),
+  horas = c(10, 12, 8),
+  nota = c(7, NA, 9)
+)
+equipo = rbind(equipo, data.frame(nombre = 'Diego', horas = 11, nota = 6))
+
+promedio_horas = mean(equipo$horas)
+aprobados = subset(equipo, !is.na(nota) & nota >= 6)
+ordenados = equipo[order(equipo$nota), ]
+
+write.csv(equipo, 'equipo.csv', row.names = FALSE)
+datos_leidos = read.csv('equipo.csv')
+
+informe = list(
+  equipo = equipo,
+  promedio_horas = promedio_horas,
+  datos_leidos = datos_leidos
+)
+
+informe[[2]]
+informe$equipo
+```
+
+Resultados clave:
+
+```text
+promedio_horas: 10.25
+aprobados: Ana, Carla, Diego
+ordenados: Diego (6), Ana (7), Carla (9), Bruno (NA)
+informe[[2]]: 10.25
+```
+
+#### Por qué funciona
+
+Las horas no tienen valores ausentes, así que `mean()` promedia las cuatro: `(10 + 12 + 8 + 11) / 4 = 10.25`. En el filtro, `!is.na(nota)` descarta a Bruno y `nota >= 6` se queda con los demás; `&` combina ambas condiciones fila a fila. `order(equipo$nota)` coloca los valores de menor a mayor y deja el `NA` al final. `write.csv()` guarda la tabla sin nombres de fila y `read.csv()` la recupera. La lista agrupa tres objetos distintos: por eso `[[2]]` devuelve el promedio y `$equipo` devuelve el dataframe completo.
+
+#### Conceptos utilizados
+
+- Dataframes, `rbind()` y columnas con `$`.
+- Valores ausentes con `NA` e `is.na()`.
+- Filtrado con `subset()` y ordenación con `order()`.
+- Persistencia con `write.csv()` y `read.csv()`.
+- Listas con nombres y extracción con `[[ ]]` y `$`.
+
+#### Errores habituales
+
+- Comparar `nota >= 6` sin descartar antes `NA`: el filtro produciría un resultado indeterminado para Bruno.
+- Olvidar `row.names = FALSE`: `read.csv()` añadiría una columna extra.
+- Usar `[ ]` en lugar de `[[ ]]` para extraer el promedio: devolvería una lista con un solo elemento.
 
 </details>

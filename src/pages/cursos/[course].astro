@@ -25,6 +25,31 @@ interface Props {
 }
 
 const { course, lessons } = Astro.props;
+
+// Cada unidad declarada en el frontmatter se muestra en un desplegable con su nombre.
+const unidades = new Map<string, CollectionEntry<'lessons'>[]>();
+const leccionesSinUnidad: CollectionEntry<'lessons'>[] = [];
+
+for (const lesson of lessons) {
+  const nombreUnidad = lesson.data.unit;
+
+  if (!nombreUnidad) {
+    leccionesSinUnidad.push(lesson);
+    continue;
+  }
+
+  const grupo = unidades.get(nombreUnidad);
+  if (grupo) {
+    grupo.push(lesson);
+  } else {
+    unidades.set(nombreUnidad, [lesson]);
+  }
+}
+
+const desplegables = Array.from(unidades, ([nombre, grupo]) => ({
+  nombre,
+  lecciones: grupo,
+}));
 ---
 
 <BaseLayout title={`${course.data.title} | Grumpy's Academy`} description={course.data.description}>
@@ -37,15 +62,32 @@ const { course, lessons } = Astro.props;
     <h1>{course.data.title}</h1>
     <p>{course.data.description}</p>
     <h2>Lecciones</h2>
-    <ol class="resource-list">
-      {
-        lessons.map((lesson) => (
-          <li>
-            <a href={`/cursos/${course.id}/${lesson.id}/`}>{lesson.data.title}</a>
-            <p>{lesson.data.description}</p>
-          </li>
-        ))
-      }
-    </ol>
+    {
+      desplegables.map(({ nombre, lecciones }) => (
+        <details class="course-units">
+          <summary>{nombre}</summary>
+          <ol class="resource-list">
+            {lecciones.map((lesson) => (
+              <li>
+                <a href={`/cursos/${course.id}/${lesson.id}/`}>{lesson.data.title}</a>
+                <p>{lesson.data.description}</p>
+              </li>
+            ))}
+          </ol>
+        </details>
+      ))
+    }
+    {
+      leccionesSinUnidad.length > 0 && (
+        <ol class="resource-list">
+          {leccionesSinUnidad.map((lesson) => (
+            <li>
+              <a href={`/cursos/${course.id}/${lesson.id}/`}>{lesson.data.title}</a>
+              <p>{lesson.data.description}</p>
+            </li>
+          ))}
+        </ol>
+      )
+    }
   </main>
 </BaseLayout>

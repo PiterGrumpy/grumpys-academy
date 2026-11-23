@@ -56,12 +56,30 @@ const courseId = lesson.data.course;
     <nav class="lesson-nav" aria-label="Navegación entre lecciones">
       {
         previous ? (
-          <a href={`/cursos/${courseId}/${previous.id}/`}>← {previous.data.title}</a>
+          <a
+            class="lesson-nav__prev"
+            href={`/cursos/${courseId}/${previous.id}/`}
+            aria-label={`Lección anterior: ${previous.data.title}`}
+          >
+            ← {previous.data.title}
+          </a>
         ) : (
           <span />
         )
       }
-      {next ? <a href={`/cursos/${courseId}/${next.id}/`}>{next.data.title} →</a> : <span />}
+      {
+        next ? (
+          <a
+            class="lesson-nav__next"
+            href={`/cursos/${courseId}/${next.id}/`}
+            aria-label={`Lección siguiente: ${next.data.title}`}
+          >
+            {next.data.title} →
+          </a>
+        ) : (
+          <span />
+        )
+      }
     </nav>
   </main>
 </BaseLayout>

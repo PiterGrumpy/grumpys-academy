@@ -8,6 +8,8 @@ description: '{{QUÉ_SE_PRACTICA}}'
 
 {{TIPO: comprensión | aplicación | integración | resolución | desafío}}
 
+> Nota: el cierre de cada lección usa un único mini-proyecto integrador con esta misma estructura y solución oculta. No se añaden listas de preguntas de recuperación.
+
 ## Enunciado
 
 {{DESCRIPCIÓN CLARA DE LA TAREA; SIN REQUERIR CONOCIMIENTOS FUTUROS}}

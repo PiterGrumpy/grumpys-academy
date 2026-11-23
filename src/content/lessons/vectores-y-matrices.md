@@ -656,3 +656,71 @@ matriz_con_totales
 - Modificar la matriz original sin guardar el resultado: `cbind()` devuelve una matriz nueva.
 
 </details>
+
+## Mini-proyecto: informe de ventas
+
+Combina vectores con nombre, comparaciones, matrices, totales y factores en un solo informe. Crea `ventas` con los valores 120, 140 y 90 para enero, febrero y marzo; crea `gastos` con 70, 80 y 60 con los mismos nombres. Calcula `ganancia` restando los vectores, guarda en `mes_mayor` el nombre del mes con mayor ganancia, construye `balance` con `rbind()`, añade una columna `total` con `rowSums()` y crea un factor ordenado `tamano` con los niveles `bajo`, `medio` y `alto`.
+
+**Criterios de aceptación:** `ganancia` conserva los nombres de los meses; `mes_mayor` vale `"febrero"`; `balance` tiene dos filas y cuatro columnas; `tamano` muestra sus niveles en orden.
+
+<details>
+<summary>Ver una posible solución del mini-proyecto</summary>
+
+#### Resolución
+
+```r
+ventas = c(enero = 120, febrero = 140, marzo = 90)
+gastos = c(enero = 70, febrero = 80, marzo = 60)
+
+ganancia = ventas - gastos
+mes_mayor = names(ganancia)[ganancia == max(ganancia)]
+
+balance = rbind(ventas, gastos)
+balance_con_total = cbind(balance, total = rowSums(balance))
+
+tamano = factor(
+  c('medio', 'alto', 'bajo'),
+  levels = c('bajo', 'medio', 'alto'),
+  ordered = TRUE
+)
+
+ganancia
+mes_mayor
+balance_con_total
+tamano
+```
+
+Resultados esperados, con el formato de impresión abreviado de R:
+
+```text
+enero febrero marzo
+   50      60    30
+
+[1] "febrero"
+
+       enero febrero marzo total
+ventas   120     140    90   350
+gastos    70      80    60   210
+
+[1] medio alto  bajo
+Levels: bajo < medio < alto
+```
+
+#### Por qué funciona
+
+La resta de vectores se aplica elemento a elemento y conserva los nombres: enero `120 - 70 = 50`, febrero `140 - 80 = 60` y marzo `90 - 60 = 30`. La comparación `ganancia == max(ganancia)` produce un filtro lógico que, aplicado a `names(ganancia)`, devuelve `"febrero"`. `rbind()` apila los vectores como filas y `rowSums()` genera un total por fila, por lo que `cbind()` puede añadirlo como cuarta columna. El factor ordenado recuerda el orden declarado en `levels`, aunque los valores se escriban en otro orden.
+
+#### Conceptos utilizados
+
+- Vectores con nombres y operaciones elemento a elemento.
+- Filtros lógicos y `names()`.
+- Matrices con `rbind()`, `rowSums()` y `cbind()`.
+- Factores ordenados con `factor()`.
+
+#### Errores habituales
+
+- Restar los vectores en orden inverso: la ganancia sería negativa.
+- Usar `colSums()` en lugar de `rowSums()`: la longitud no coincidiría con las dos filas.
+- Declarar los niveles del factor en el orden en que aparecen los datos en lugar del orden deseado.
+
+</details>

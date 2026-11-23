@@ -31,4 +31,6 @@ description: '{{QUÉ_SE_RESUELVE}}'
 
 </details>
 
+> Nota: dentro de una lección, estos cuatro subtítulos van un nivel por debajo del ejercicio (`####`) y el `<summary>` usa `Ver la solución del ejercicio N` o `Ver una posible solución del mini-proyecto`. El cierre integrador de cada lección emplea esta misma estructura.
+
 > Nota: en una web estática el contenido oculto sigue estando en el código fuente. La opacidad es pedagógica, no de seguridad.

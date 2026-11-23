@@ -17,7 +17,7 @@
   --color-focus: #0b5cab;
   --color-code-bg: #f2f5f9;
 
-  --measure: 68ch;
+  --measure: 80ch;
   --measure-wide: 72rem;
   --space-sm: 0.75rem;
   --space-md: 1.5rem;
@@ -113,6 +113,20 @@ a:hover {
   background-color: var(--color-surface);
 }
 
+.hero h1.hero__logo {
+  margin: 0 0 var(--space-md);
+}
+
+.hero__logo img {
+  display: block;
+  width: min(100%, 38rem);
+  height: auto;
+  margin-inline: auto;
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  /* background-color: #ffffff; */
+}
+
 .hero__eyebrow {
   margin: 0 0 var(--space-sm);
   color: var(--color-accent-2);
@@ -176,6 +190,7 @@ a:hover {
 /*
  * `auto-fill` deja huecos vacíos en lugar de estirar la única tarjeta:
  * con un curso la card conserva su ancho y la grilla sigue preparada para más.
+ * El `li` es flexible para que todas las cards de una fila compartan altura.
  */
 .course-grid {
   display: grid;
@@ -186,8 +201,14 @@ a:hover {
   list-style: none;
 }
 
+.course-grid > li {
+  display: flex;
+}
+
 .course-card {
+  flex: 1;
   min-width: 0;
+  min-height: 12rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background-color: var(--color-surface);
@@ -209,18 +230,21 @@ a:hover {
   text-decoration: none;
 }
 
+/*
+ * Hueco fijo para el logo: ambos SVG oficiales se escalan a la misma altura
+ * y el título empieza siempre en la misma columna y fila.
+ */
 .course-card__header {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  gap: var(--space-sm);
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  align-items: start;
+  column-gap: var(--space-sm);
 }
 
 .course-card__logo {
-  flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
+  width: 100%;
+  height: 2.5rem;
+  object-fit: contain;
 }
 
 .course-card__heading {
@@ -228,15 +252,12 @@ a:hover {
 }
 
 .course-card__title {
-  display: -webkit-box;
-  overflow: hidden;
+  min-height: 2.6em;
   margin: 0;
   color: var(--color-text);
   font-size: 1.0625rem;
   line-height: 1.3;
   overflow-wrap: anywhere;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
 }
 
 .course-card .course-card__meta {
@@ -248,15 +269,11 @@ a:hover {
 }
 
 .course-card__description {
-  display: -webkit-box;
-  overflow: hidden;
   margin: var(--space-sm) 0 0;
   color: var(--color-muted);
   font-size: 0.875rem;
   line-height: 1.5;
   overflow-wrap: anywhere;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
 }
 
 .course-card__link:hover .course-card__title,
@@ -329,18 +346,52 @@ a:hover {
   border-top: 1px solid var(--color-border);
 }
 
+.course-units {
+  margin: 0 0 var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+}
+
+.course-units summary {
+  cursor: pointer;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.course-units[open] summary {
+  margin-bottom: var(--space-md);
+}
+
 .resource-list p {
   margin: var(--space-sm) 0 0;
 }
 
 .lesson-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
   gap: var(--space-md);
   margin-top: var(--space-lg);
   padding-top: var(--space-md);
   border-top: 1px solid var(--color-border);
+}
+
+.lesson-nav__prev,
+.lesson-nav__next {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.lesson-nav__prev {
+  justify-self: start;
+  text-align: left;
+}
+
+.lesson-nav__next {
+  justify-self: end;
+  text-align: right;
 }
 
 /* Estilos del contenido Markdown de las lecciones */
