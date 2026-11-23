@@ -31,7 +31,7 @@ Negativas: el registro de progreso hay que actualizarlo a mano en cada iteració
 
 ## Decisiones posteriores
 
-Esta decisión conserva el estado inicial del curso. La [ADR 0007](0007-desarrollo-por-unidades-y-coherencia-con-r.md) sustituyó la espera de evidencia por autoevaluación con soluciones ocultas en el modo de desarrollo completo; la [ADR 0009](0009-recursos-visuales-con-mcp.md) incorporó esquemas SVG locales; y la [ADR 0010](0010-nombres-de-lecciones-sin-codigos.md) eliminó los códigos `U`/`L` de títulos, archivos y texto visible. Los códigos que aparecen arriba son referencias históricas al índice interno.
+Esta decisión conserva el estado inicial del curso. La [ADR 0007](0007-desarrollo-por-unidades-y-coherencia-con-r.md) sustituyó la espera de evidencia por autoevaluación con soluciones ocultas en el modo de desarrollo completo; la [ADR 0009](0009-recursos-visuales-con-mcp.md) incorporó esquemas SVG locales; la [ADR 0010](0010-nombres-de-lecciones-sin-codigos.md) eliminó los códigos `U`/`L` de títulos, archivos y texto visible; y la [ADR 0014](0014-logos-oficiales-y-descripcion-completa.md) sustituyó el estado inicial «sin logo» por el logo oficial de Python en la tarjeta. Los códigos que aparecen arriba son referencias históricas al índice interno.
 
 ## Revisión
 

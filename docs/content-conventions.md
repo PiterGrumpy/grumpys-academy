@@ -30,7 +30,7 @@ unit: 'Primeros Pasos' # opcional, string: nombre público de la unidad
 
 Los campos se ampliarán solo cuando un contenido real lo exija. No se añadirán metadatos especulativos.
 
-El campo opcional `unit` guarda el nombre representativo de la unidad, sin códigos `U` ni `L`. La página del curso genera un desplegable `<details>` por unidad usando ese nombre como `<summary>` (ADR 0015). En Python, las cinco lecciones iniciales usan `Antes de empezar` y las seis de sintaxis, valores y variables usan `Primeros Pasos`. Las lecciones que no declaran `unit` —por ahora las del curso de R— se muestran en una lista plana. Para publicar una unidad nueva basta con dar el mismo `unit` a sus lecciones; no se edita la ruta ni la interfaz.
+El campo opcional `unit` guarda el nombre representativo de la unidad, sin códigos `U` ni `L`. La página del curso genera un desplegable `<details>` por unidad usando ese nombre como `<summary>` (ADR 0015). En Python, las cinco lecciones iniciales usan `Antes de empezar`, las seis de sintaxis, valores y variables usan `Primeros Pasos` y las seis de control de flujo usan `Control de flujo`. Las lecciones que no declaran `unit` —por ahora las del curso de R— se muestran en una lista plana. Para publicar una unidad nueva basta con dar el mismo `unit` a sus lecciones; no se edita la ruta ni la interfaz.
 
 ## Organización
 

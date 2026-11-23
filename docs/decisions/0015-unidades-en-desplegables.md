@@ -14,7 +14,7 @@ Los títulos y el orden de las lecciones ya viven en la colección `lessons` y n
 1. Añadir el campo opcional `unit` al esquema de la colección `lessons`: cadena con el **nombre público de la unidad**, sin códigos `U` ni `L`.
 2. La página de curso lee `unit`, agrupa las lecciones en el orden que ya tienen por `order` y genera un `<details>` por unidad. El `<summary>` muestra literalmente el valor de `unit`.
 3. Las lecciones que no declaran `unit` —las tres del curso de R, que no tienen unidades definidas— siguen apareciendo en una lista plana bajo «Lecciones».
-4. Los nombres actuales de Python son «Antes de empezar» para las cinco lecciones iniciales y «Primeros Pasos» para las seis de sintaxis, valores y variables. Cada unidad futura recibirá un nombre representativo de su contenido en el momento de redactarse.
+4. Los nombres actuales de Python son «Antes de empezar» para las cinco lecciones iniciales, «Primeros Pasos» para las seis de sintaxis, valores y variables y «Control de flujo» para las seis de verdad, condicionales y bucles. Cada unidad futura recibirá un nombre representativo de su contenido en el momento de redactarse.
 5. La skill de autoría de Python, la plantilla de lección y las convenciones de contenido exigen declarar `unit` en cada lección de Python. La documentación de arquitectura, interfaz y memoria reflejan la convención.
 
 ## Consecuencias

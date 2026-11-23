@@ -399,7 +399,7 @@ En Python la indentación solo es válida cuando abre un bloque, y todavía no h
 
 Criterios de revisión: indentación correcta, interpretación del mensaje de error y existencia de una versión guardada que funcione.
 
-**Estado:** lección «Editor, depuración inicial y hábitos», pendiente de autoevaluación. **Parte inicial completada.** Siguiente lección prevista: «Anatomía de un programa», que se desarrollará cuando lo solicites.
+**Estado:** lección «Editor, depuración inicial y hábitos», pendiente de autoevaluación. Siguiente lección: «Anatomía de un programa».
 
 ## Recursos
 

@@ -1,7 +1,7 @@
 # SKILL --- Desarrollo iterativo de lecciones del curso de Python
 
 **Identificador:** `python-lesson-authoring`\
-**Versión:** 1.4\
+**Versión:** 1.5\
 **Ámbito:** transformar una entrada del índice maestro en una lección
 didáctica completa, rigurosa, práctica y evaluable.\
 **Documento curricular asociado:** `CONTENIDO_CURSO_PYTHON.md`
@@ -194,8 +194,8 @@ título en `kebab-case`, sin acentos ni prefijos
 `u0-l0.1-que-es-programar-y-python.md`). El orden se guarda en `order`.
 El campo `unit` guarda el nombre público de la unidad, sin códigos, y
 hace que la lección aparezca en el desplegable correspondiente de la
-página del curso (ADR 0015). Decisiones en ADR 0010, ADR 0012 y ADR
-0015.
+página del curso (ADR 0015). Decisiones en ADR 0010, ADR 0012, ADR
+0015 y ADR 0016.
 
 ### 5.2 Ejemplo guiado
 
@@ -378,6 +378,12 @@ por el usuario de lo impreso por el programa.
 -   No uses `pickle` con datos no confiables.
 -   No expongas secretos en logs, repositorios o ejemplos.
 
+### 6.5 Bloques de código
+
+-   Declara el lenguaje en cada bloque: `python` para código y `text` para salidas, diálogos de consola y transcripciones de terminal.
+-   No escribas bloques vallados sin lenguaje: Astro no puede elegir la gramática y el ejemplo pierde el resaltado (ADR 0016).
+-   El resaltado se aplica de forma automática con paletas de alto contraste para tema claro y oscuro; no añadas clases ni estilos manuales.
+
 ## 7. Adaptación pedagógica
 
 ### Si el alumno es principiante absoluto
@@ -553,6 +559,7 @@ material:
 -   [ ] La secuencia va de intuición a práctica.
 -   [ ] Los términos nuevos están definidos.
 -   [ ] El código es coherente y compatible con la versión objetivo.
+-   [ ] Los bloques declaran lenguaje: `python` para código y `text` para salidas; no hay vallas sin etiquetar (ADR 0016).
 -   [ ] Se distingue código completo de fragmentos parciales.
 -   [ ] Las salidas no se presentan como ejecutadas si no lo fueron.
 -   [ ] Se explican errores previsibles.
