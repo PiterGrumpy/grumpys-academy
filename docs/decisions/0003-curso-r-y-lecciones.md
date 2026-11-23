@@ -30,4 +30,4 @@ Negativas: el esquema de `lessons` tendrá que ampliarse cuando aparezcan módul
 
 ## Revisión
 
-Revisar al añadir módulos, al incorporar un segundo curso o cuando el resaltado de código suponga una mejora pedagógica real.
+Revisar al añadir módulos, al incorporar un segundo curso o cuando el resaltado de código suponga una mejora pedagógica real. El punto que desactivaba Shiki se revisó y quedó sustituido por la [ADR 0016](0016-resaltado-de-sintaxis-en-ejemplos.md) el 2026-11-23.

@@ -45,7 +45,7 @@ No existe todavía una colección de módulos. Si el curso crece, se documentar�
 
 - Un `h1` por documento; después `h2`, `h3`, `h4` sin saltos.
 - El `h1` va seguido directamente del contenido: sin tabla de metadatos, sin «Versión objetivo del curso», sin «Qué aprenderás», sin «Contexto y motivación» y sin el encabezado «Explicación conceptual». Los conceptos se presentan como apartados `##` con títulos descriptivos. Decisión en [ADR 0012](decisions/0012-lecturas-directas-sin-bloques-de-presentacion.md).
-- Bloques de código con lenguaje explícito: `r, `js, `html, `css.
+- Bloques de código con lenguaje explícito: `r`, `python` o `text` para salidas y transcripciones de terminal. Astro aplica el resaltado con paletas de alto contraste según el tema (ADR 0016).
 - En el curso de R se usa `=` para asignar (`numero = 10`). Se menciona `<-` como forma tradicional que aparece en la documentación, y se distingue tanto de los argumentos nombrados dentro de funciones como de `==` para comparar. Decisión en ADR 0005.
 - El resultado esperado se muestra en un bloque `text` después del código cuando aporte claridad.
 - Consejos y advertencias como blockquote con etiqueta en negrita: `> **Consejo:** ...`, `> **Advertencia:** ...`.

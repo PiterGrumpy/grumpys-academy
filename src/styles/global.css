@@ -459,6 +459,30 @@ a:hover {
   background: none;
 }
 
+/*
+ * Astro genera dos paletas por token con `defaultColor: false`.
+ * El fondo y el color base viven en el <pre>; cada token elige su par.
+ */
+.lesson pre.astro-code {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+.lesson pre.astro-code span {
+  color: var(--shiki-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  .lesson pre.astro-code {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
+  }
+
+  .lesson pre.astro-code span {
+    color: var(--shiki-dark);
+  }
+}
+
 .lesson blockquote {
   margin: 0 0 var(--space-md);
   padding: var(--space-sm) var(--space-md);
